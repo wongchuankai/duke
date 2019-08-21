@@ -42,7 +42,7 @@ public class Duke {
                     System.out.println("____________________________________________________________");
                     System.out.println(" Nice! I've marked this task as done:");
                     Task taskdone = taskArrayList.get(number);
-                    taskdone.isDone = true;
+                    taskdone.markAsDone();
                     System.out.println("   " + taskdone.getStatusIcon() + " " + taskdone.description);
                     System.out.println("____________________________________________________________");
 
