@@ -13,7 +13,7 @@ public class Duke {
 
         Scanner scan = new Scanner (System.in);
 
-        ArrayList<String> list = new ArrayList<>();
+        ArrayList<Task> taskArrayList = new ArrayList<>();
 
         boolean flag = true;
         while (flag) {
@@ -21,26 +21,39 @@ public class Duke {
             if(command.equals("bye")) {
                 flag = false;
                 System.out.println("____________________________________________________________");
-                System.out.println("Bye. Hope to see you again soon!\n");
+                System.out.println("Bye. Hope to see you again soon!");
                 System.out.println("____________________________________________________________");
             }
 
             else if (command.equals("list")) {
                 System.out.println("____________________________________________________________");
-                for(int i = 0 ;i < list.size();i++) {
-                    System.out.println( (i + 1 )+". " + list.get(i));
+                for(int i = 0 ;i < taskArrayList.size();i++) {
+                    int number = i + 1;
+                    System.out.println(number + "." + taskArrayList.get(i).getStatusIcon() + " " + taskArrayList.get(i).description);
                 }
                 System.out.println("____________________________________________________________");
 
             }
 
             else {
-                list.add(command);
+                String[] strarr = command.split(" ");
+                if (strarr[0].equals("done")) {
+                    int number = Integer.parseInt(strarr[1]);
+                    System.out.println("____________________________________________________________");
+                    System.out.println(" Nice! I've marked this task as done:");
+                    Task taskdone = taskArrayList.get(number);
+                    taskdone.isDone = true;
+                    System.out.println("   " + taskdone.getStatusIcon() + " " + taskdone.description);
+                    System.out.println("____________________________________________________________");
 
-                System.out.println("____________________________________________________________");
-                System.out.println(" added: " + command);
-                System.out.println("____________________________________________________________");
-                System.out.println();
+                } else {
+                    Task newTask = new Task(command);
+                    taskArrayList.add(newTask);
+                    System.out.println("____________________________________________________________");
+                    System.out.println(" added: " + command);
+                    System.out.println("____________________________________________________________");
+                    System.out.println();
+                }
             }
         }
 
