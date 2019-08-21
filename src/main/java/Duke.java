@@ -13,6 +13,8 @@ public class Duke {
 
         Scanner scan = new Scanner (System.in);
 
+        ArrayList<String> list = new ArrayList<>();
+
         boolean flag = true;
         while (flag) {
             String command = scan.nextLine();
@@ -22,9 +24,21 @@ public class Duke {
                 System.out.println("Bye. Hope to see you again soon!\n");
                 System.out.println("____________________________________________________________");
             }
-            else {
+
+            else if (command.equals("list")) {
                 System.out.println("____________________________________________________________");
-                System.out.println(command+"\n");
+                for(int i = 0 ;i < list.size();i++) {
+                    System.out.println( (i + 1 )+". " + list.get(i));
+                }
+                System.out.println("____________________________________________________________");
+
+            }
+
+            else {
+                list.add(command);
+
+                System.out.println("____________________________________________________________");
+                System.out.println(" added: " + command);
                 System.out.println("____________________________________________________________");
                 System.out.println();
             }
