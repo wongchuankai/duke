@@ -21,7 +21,7 @@ public class Duke {
             if(command.equals("bye")) {
                 flag = false;
                 System.out.println("    ____________________________________________________________");
-                System.out.println("    Bye. Hope to see you again soon!");
+                System.out.println("      Bye. Hope to see you again soon!");
                 System.out.println("    ____________________________________________________________");
             }
 
@@ -76,7 +76,7 @@ public class Duke {
                 }
                 if(command.contains("done")) {
                     String[] donearr = command.split(" " );
-                    int no = Integer.parseInt(donearr[1]);
+                    int no = Integer.parseInt(donearr[1])-1;
                     System.out.println("    ____________________________________________________________");
                     System.out.println("     Nice! I've marked this task as done:");
                     Task donetask = taskArrayList.get(no);
