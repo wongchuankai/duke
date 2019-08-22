@@ -89,7 +89,7 @@ public class Duke {
                             if (donearr.length == 1) {
                                 throw new DukeException(" ☹ OOPS!!! Which task do you want to complete?");
                             }
-                            if(donearr.length<Integer.parseInt(donearr[1])) {
+                            if(donearr.length<Integer.parseInt(donearr[1]) - 1) {
                                 throw new IndexOutOfBoundsException();
                             }
                             int no = Integer.parseInt(donearr[1]) - 1;
