@@ -110,6 +110,23 @@ public class Duke {
                         }
 
                     }
+                 else if (command.startsWith("delete ")) {
+                     String[] deletearr = command.split(" ");
+                     int number = Integer.parseInt(deletearr[1]) - 1;
+                     try {
+                         Task deletetask = taskArrayList.get(number);
+                         System.out.println("    ____________________________________________________________");
+                         System.out.println("     Noted. I've removed this task:");
+                         System.out.println("       " + deletetask.toString());
+                         taskArrayList.remove(number);
+                         System.out.println("     Now you have " + taskArrayList.size() + " tasks in the list.");
+                         System.out.println("    ____________________________________________________________");
+                     }
+                     catch (IndexOutOfBoundsException e) {
+                         System.out.println(" ☹ OOPS!!! Task number not found.");
+                     }
+                 }
+
                     else {
                 System.out.println("    ____________________________________________________________");
                         throw new DukeException(" ☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
