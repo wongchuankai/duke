@@ -52,7 +52,7 @@ public class Duke {
                             System.out.println("     Now you have " + numberOfTask + " tasks in the list.");
                             System.out.println("    ____________________________________________________________");
                         } catch (DukeException e) {
-                            System.out.println(e);
+                            System.out.println("     ☹ OOPS!!! The description of a todo cannot be empty.");
                             System.out.println("    ____________________________________________________________");
 
                         }
@@ -106,7 +106,9 @@ public class Duke {
                             System.out.println(e);
                         }
                         catch (IndexOutOfBoundsException e) {
-                            System.out.println(" ☹ OOPS!!! Task number not found.");
+                            System.out.println("    ____________________________________________________________");
+                            System.out.println("     ☹ OOPS!!! Task number not found.");
+                            System.out.println("    ____________________________________________________________");
                         }
 
                     }
@@ -123,17 +125,19 @@ public class Duke {
                          System.out.println("    ____________________________________________________________");
                      }
                      catch (IndexOutOfBoundsException e) {
-                         System.out.println(" ☹ OOPS!!! Task number not found.");
+                         System.out.println("    ____________________________________________________________");
+                         System.out.println("     ☹ OOPS!!! Task number not found.");
+                         System.out.println("    ____________________________________________________________");
                      }
                  }
 
                     else {
-                System.out.println("    ____________________________________________________________");
                         throw new DukeException(" ☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
                 }
             }
             catch (DukeException e) {
-                System.out.println(e);
+                System.out.println("    ____________________________________________________________");
+                System.out.println("     ☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
                 System.out.println("    ____________________________________________________________");
             }
         }
