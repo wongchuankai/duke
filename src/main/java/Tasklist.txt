@@ -1,4 +1,2 @@
-1/deadline/homework/2nd of August 2019, 12.35pm
-0/deadline/homework/2nd of August 2019, 12.34pm
-1/deadline/homework/2nd of August 2019, 12.36pm
-0/deadline/homework/2nd of October 2018, 8.00pm
+0/todo/homework
+1/event/now/here
