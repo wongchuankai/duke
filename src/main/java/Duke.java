@@ -77,8 +77,16 @@ public class Duke {
         String[] deadlinearr = deadlineString.split(" /by ");
         System.out.println("    ____________________________________________________________");
         System.out.println("     Got it. I've added this task:");
-
-        Deadline deadline = new Deadline(deadlinearr[0], deadlinearr[1]);
+        String[] date = deadlinearr[1].split("/");
+        String[] tm = date[2].split(" ");
+        //
+        int day = Integer.parseInt(date[0]);
+        int month = Integer.parseInt(date[1]);
+        int year = Integer.parseInt(tm[0]);
+        String time = tm[1];
+        time t = new time(day, month, year, time);
+        //
+        Deadline deadline = new Deadline(deadlinearr[0], t.toString());
         taskArrayList.add(deadline);
         int numberOfTask = taskArrayList.size();
         System.out.println("       " + deadline.toString());
@@ -128,7 +136,7 @@ public class Duke {
             throw new DukeException(" ☹ OOPS!!! Which task do you want to complete?");
         }
 
-        if(donearr.length<Integer.parseInt(donearr[1]) - 1) {
+        if(taskArrayList.size()<Integer.parseInt(donearr[1]) -1) {
             throw new IndexOutOfBoundsException();
         }
         int no = Integer.parseInt(donearr[1]) - 1;
@@ -268,8 +276,9 @@ public class Duke {
                         }
                     }
                    else if (command.startsWith("deadline ")) {
-                        Deadline(command);    
+                        Deadline(command);
                 }
+
                   else   if (command.startsWith("event ")){
                         Event(command);
                 }
