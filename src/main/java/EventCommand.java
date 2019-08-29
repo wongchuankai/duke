@@ -1,13 +1,28 @@
 import java.io.IOException;
 
+/**
+ * Execute Event command in Duke.
+ */
+
 public class EventCommand extends Command {
     String command;
 
+    /**
+     *  Event Command constructor using string user input
+     * @param command user String input
+     */
     public EventCommand(String command) {
         super(command);
         this.command = command;
     }
 
+    /**
+     * Execute the Event command
+     * @param task Tasklist data
+     * @param ui Ui interfaces and strings
+     * @param storage stored file
+     * @throws DukeException if any of raw values are invalid
+     */
     @Override
     public void execute(TaskList task,Ui ui,Storage storage) throws DukeException {
         String[] eventtask = command.split("event ");

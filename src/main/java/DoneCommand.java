@@ -1,13 +1,25 @@
 import java.io.IOException;
 
+/**
+ * Execute Done command in Duke.
+ */
 public class DoneCommand extends Command {
     String command;
-
+    /**
+     *  Done Command constructor using string user input
+     * @param command user String input
+     */
     public DoneCommand(String command) {
         super(command);
         this.command = command;
     }
-
+    /**
+     * Execute the Done command
+     * @param task Tasklist data
+     * @param ui Ui interfaces and strings
+     * @param storage stored file
+     * @throws DukeException if any of raw values are invalid
+     */
     @Override
     public void execute(TaskList task,Ui ui,Storage storage) throws DukeException {
         try {

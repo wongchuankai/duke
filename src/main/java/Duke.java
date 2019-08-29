@@ -1,11 +1,25 @@
 import java.util.*;
 import java.io.*;
 
+/**
+ * Entry point of Duke application.
+ * Initialises the application and starts the interaction withthe user.
+ */
+
 public class Duke {
+
+    /**
+     * Initialises necessary classes and variables
+     */
     private Storage storage;
     private TaskList tasks;
     private Ui ui;
 
+
+    /**
+     * Read the stored data in the file and executes it.
+     * @param filePath filepath of stored data
+     */
     public Duke(String filePath) {
         ui = new Ui();
         storage = new Storage(filePath);
@@ -21,6 +35,9 @@ public class Duke {
         }
     }
 
+    /**
+     *  Runs the program until termination.
+     */
     public void run() {
         ui.showWelcome();
     boolean isExit = false;
@@ -40,6 +57,10 @@ public class Duke {
     }
     }
 
+    /**
+     * Main method which runs the program
+     * @param args
+     */
     public static void main(String[] args) {
         new Duke("Tasklist.txt").run();
     }
