@@ -1,15 +1,27 @@
 import java.io.IOException;
 import java.util.ArrayList;
-
+/**
+ * Execute the Find command in Duke.
+ */
 public class FindCommand extends Command{
 
     private String command;
-
-    FindCommand(String command) {
+    /**
+     *  Find Command constructor using string user input
+     * @param command user String input
+     */
+    public FindCommand(String command) {
         super(command);
         this.command = command;
     }
 
+    /**
+     * Execute the Find command
+     * @param task Tasklist data
+     * @param ui Ui interfaces and strings
+     * @param storage stored file
+     * @throws DukeException if any of raw values are invalid
+     */
     @Override
     public void execute(TaskList task,Ui ui,Storage storage) throws DukeException {
         ArrayList<Task> tasklist = task.getTaskList();
