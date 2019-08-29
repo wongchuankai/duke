@@ -1,13 +1,28 @@
+/**
+ * Execute the Deadline command in Duke.
+ */
+
 import java.io.IOException;
 
 public class DeadlineCommand extends Command {
     String command;
 
+    /**
+     * Deadline constructor with string command
+     * @param command user string input
+     */
     public DeadlineCommand(String command) {
         super(command);
         this.command = command;
     }
 
+    /**
+     * Execute the Deadline command
+     * @param task Tasklist data
+     * @param ui Ui interfaces and strings
+     * @param storage stored file
+     * @throws DukeException if any of raw values are invalid
+     */
     @Override
     public void execute(TaskList task,Ui ui,Storage storage) throws DukeException {
         try {

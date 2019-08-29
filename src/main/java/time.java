@@ -1,8 +1,20 @@
+/**
+ * Date and 24 format of by in deadline task
+ */
+
 public class time {
     String day;
     String month;
     String year;
     String time;
+
+    /**
+     * Constructor for time
+     * @param day DD
+     * @param month MM
+     * @param year YYYY
+     * @param time has to be in 24 hour format
+     */
     public time (int day, int month, int year, String time) {
         if(day == 1) {
             this.day = day +"st";
@@ -59,6 +71,12 @@ public class time {
         this.time = convert(time);
 
     }
+
+    /**
+     * convert the string input of by to the needed format
+     * @param time
+     * @return
+     */
 
     public String convert(String time) {
         String output = "";

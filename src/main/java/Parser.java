@@ -1,8 +1,18 @@
+/**
+ * Parses user input.
+ */
+
 public class Parser {
     
     public Parser() {
 
     }
+
+    /**
+     * Parses user input into command for execution.
+     * @param command user string input
+     * @return the command based on string input
+     */
     public Command parse(String command) {
         if (command.startsWith("todo ")) {
             ToDoCommand c = new ToDoCommand(command);

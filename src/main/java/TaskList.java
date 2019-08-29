@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 
+/**
+ * Task List stores task information in an array list.
+ */
 
 public class TaskList {
     
@@ -8,16 +11,28 @@ public class TaskList {
     public TaskList() {
         tasklist = new ArrayList<>();
         
-    } 
+    }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Task> getTaskList() {
         return tasklist;
     }
 
+    /**
+     * constructor with task list from storage
+     * @param tasklist from storage class
+     */
     public TaskList(ArrayList<Task> tasklist) {
         this.tasklist = tasklist;
     }
 
+    /**
+     * add task to the list
+     * @param task
+     */
     public void addTask(Task task) {
         tasklist.add(task);
     }
@@ -27,6 +42,10 @@ public class TaskList {
         return tasklist.size();
     }
 
+    /**
+     * delete task in the list
+     * @param number task number
+     */
     public void deleteTask(int number) {
         tasklist.remove(number);
     }
