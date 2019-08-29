@@ -1,4 +1,5 @@
 public class Task {
+
     protected String description;
     protected boolean isDone;
 
@@ -9,6 +10,9 @@ public class Task {
     //✓u2713
     public String getStatusIcon() {
         return (isDone ? "DONE" : "\u2718"); //return tick or X symbols
+    }
+    public String getDescription() {
+        return description;
     }
 
     @Override
