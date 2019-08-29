@@ -24,6 +24,10 @@ public class Task {
         return (isDone ? "DONE" : "\u2718"); //return tick or X symbols
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     @Override
     public String toString() {
         return getStatusIcon() + " " + this.description;
