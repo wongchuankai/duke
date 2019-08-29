@@ -37,7 +37,7 @@ public class DoneCommand extends Command {
                 throw new DukeException(" ☹ OOPS!!! Which task do you want to complete?");
             }
 
-            int no = Integer.parseInt(donearr[1]) ;
+            int no = Integer.parseInt(donearr[1]) - 1;
             if(task.getCount() < no) {
                 throw new DukeException("SSS");
             } else {
