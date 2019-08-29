@@ -1,7 +1,7 @@
 import java.io.IOException;
 
 public class DeadlineCommand extends Command {
-    String command;
+    private String command;
 
     public DeadlineCommand(String command) {
         super(command);
@@ -9,7 +9,7 @@ public class DeadlineCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList task,Ui ui,Storage storage) throws DukeException {
+    public void execute(TaskList task, Ui ui, Storage storage) throws DukeException {
         try {
             String[] deadlinetask = command.split("deadline ");
             String deadlineString = deadlinetask[1];
@@ -33,8 +33,7 @@ public class DeadlineCommand extends Command {
             } catch (IOException e) {
                 System.out.println(e);
             }
-        }
-        catch (ArrayIndexOutOfBoundsException e) {
+        } catch (ArrayIndexOutOfBoundsException e) {
             throw new DukeException("    ☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
         }
     }

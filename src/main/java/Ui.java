@@ -9,7 +9,6 @@ public class Ui {
 
     public Ui() {
         this.input = new Scanner(System.in);
-
     }
 
     public void showWelcome() {
@@ -18,10 +17,9 @@ public class Ui {
         + "| | | | | | | |/ / _ \\\n"
         + "| |_| | |_| |   <  __/\n"
         + "|____/ \\__,_|_|\\_\\___|\n";
-System.out.println("Hello from\n" + logo);
-System.out.println("Hello! I'm Duke");
-System.out.println("What can I do for you?");
-
+        System.out.println("Hello from\n" + logo);
+        System.out.println("Hello! I'm Duke");
+        System.out.println("What can I do for you?");
     }
 
     public String readCommand() {
@@ -36,7 +34,6 @@ System.out.println("What can I do for you?");
 
     public void showLoadingError() {
         System.out.println("Loading Error. New tasklist will be created");
-
     }
 
     public void showError(String message) {

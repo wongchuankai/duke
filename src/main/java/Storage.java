@@ -4,11 +4,8 @@ import java.io.*;
 public class Storage {
     
     private String filePath;
-
     private Scanner scan;
-
     private File file;
-
     private ArrayList<Task> taskArrayList;
 
     public Storage(String filePath) {
@@ -20,38 +17,35 @@ public class Storage {
     public ArrayList<Task> load() throws DukeException,IOException {
         scan = new Scanner(file);
         try {
-        while (scan.hasNext()) {
-            // example : 0/todo/homework
-            // 1/deadline/homework/2nd of August 2019, 12.35pm
-            String line = scan.nextLine();
-            String[] scanned = line.split("/");
-            if (scanned[1].equals("todo")) {
-                ToDo scannedDo = new ToDo(scanned[2]);
-                if (scanned[0].equals("1")) {
-                    scannedDo.markAsDone();
-                }
-                taskArrayList.add(scannedDo);
-            }
-            else if (scanned[1].equals("event")) {
-                Event scannedEvent = new Event(scanned[2],scanned[3]);
-                if(scanned[0].equals("1")) {
-                    scannedEvent.markAsDone();
-                }
-                taskArrayList.add(scannedEvent);
-            }
-            else if (scanned[1].equals("deadline")) {
-                Deadline scannedDeadline = new Deadline(scanned[2],scanned[3]);
-                if(scanned[0].equals("1")) {
+            while (scan.hasNext()) {
+                // example : 0/todo/homework
+                // 1/deadline/homework/2nd of August 2019, 12.35pm
+                String line = scan.nextLine();
+                String[] scanned = line.split("/");
+                if (scanned[1].equals("todo")) {
+                    ToDo scannedDo = new ToDo(scanned[2]);
+                    if (scanned[0].equals("1")) {
+                        scannedDo.markAsDone();
+                    }
+                    taskArrayList.add(scannedDo);
+                } else if (scanned[1].equals("event")) {
+                    Event scannedEvent = new Event(scanned[2],scanned[3]);
+                    if(scanned[0].equals("1")) {
+                        scannedEvent.markAsDone();
+                    }
+                    taskArrayList.add(scannedEvent);
+                } else if (scanned[1].equals("deadline")) {
+                    Deadline scannedDeadline = new Deadline(scanned[2],scanned[3])
+                    if(scanned[0].equals("1")) {
                     scannedDeadline.markAsDone();
+                    }
+                    taskArrayList.add(scannedDeadline);
                 }
-                taskArrayList.add(scannedDeadline);
             }
-        }
         return taskArrayList;
-    }
-    catch(Exception e) {
+        } catch(Exception e) {
         throw new DukeException("LOADING ERROR");
-    }
+        }
     }
 
     public void appendToFile(String textToAppend) throws IOException {
@@ -105,6 +99,4 @@ public class Storage {
         }
         writeToFile(filePath,oldContent);
     }
-
-
 }

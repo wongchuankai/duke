@@ -1,7 +1,7 @@
 import java.io.IOException;
 
 public class EventCommand extends Command {
-    String command;
+    private String command;
 
     public EventCommand(String command) {
         super(command);
@@ -9,7 +9,7 @@ public class EventCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList task,Ui ui,Storage storage) throws DukeException {
+    public void execute(TaskList task, Ui ui, Storage storage) throws DukeException {
         String[] eventtask = command.split("event ");
         String eventString = eventtask[1];
         String[] eventarr = eventString.split(" /at ");
@@ -22,8 +22,7 @@ public class EventCommand extends Command {
         int checkdone = event.isDone ? 1 : 0;
         try {
             storage.appendToFile(checkdone + "/event/" + event.description + "/" + event.at+System.lineSeparator() );
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             System.out.println(e);
         }
     }

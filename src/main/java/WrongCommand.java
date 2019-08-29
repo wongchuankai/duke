@@ -1,7 +1,7 @@
 import java.io.IOException;
 
 public class WrongCommand extends Command {
-    String command;
+    private String command;
 
     public WrongCommand(String command) {
         super(command);
@@ -9,7 +9,7 @@ public class WrongCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList task,Ui ui,Storage storage) throws DukeException {
+    public void execute(TaskList task, Ui ui, Storage storage) throws DukeException {
        throw new DukeException("     ☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
     }
 

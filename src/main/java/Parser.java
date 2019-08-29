@@ -1,8 +1,8 @@
 public class Parser {
     
     public Parser() {
-
     }
+
     public Command parse(String command) {
         if (command.startsWith("todo ")) {
             ToDoCommand c = new ToDoCommand(command);
@@ -25,8 +25,7 @@ public class Parser {
         } else if (command.startsWith("delete ")) {
             DeleteCommand c = new DeleteCommand(command);
             return c;
-        }
-        else  {
+        } else {
             WrongCommand c = new WrongCommand(command);
             return c;
         }

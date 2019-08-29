@@ -5,7 +5,7 @@ public class Command {
         this.command = command;
     }
 
-    public void execute(TaskList task,Ui ui,Storage storage) throws DukeException{
+    public void execute(TaskList task, Ui ui, Storage storage) throws DukeException {
 
     }
     
