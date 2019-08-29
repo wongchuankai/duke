@@ -3,10 +3,11 @@
  */
 
 public class time {
-    String day;
-    String month;
-    String year;
-    String time;
+
+    private String day;
+    private String month;
+    private String year;
+    private String time;
 
     /**
      * Constructor for time
@@ -81,19 +82,18 @@ public class time {
     public String convert(String time) {
         String output = "";
         String t = time;
-       String hour = time.charAt(0) + "" + time.charAt(1);
-       String mins = time.charAt(2) + "" + time.charAt(3);
-       int hourr = Integer.parseInt(hour);
-       if (hourr<12) {
-        output = hour + "." + mins + "am";
-       }
-       else if (hourr == 12) {
-        output = hour + "." + mins + "pm";   
-       }
-       else  {
-           hourr = hourr -12;
-           output = hourr + "." + mins +"pm";
-       }
+        String hour = time.charAt(0) + "" + time.charAt(1);
+        String mins = time.charAt(2) + "" + time.charAt(3);
+        int hourr = Integer.parseInt(hour);
+        if (hourr<12) {
+            output = hour + "." + mins + "am";
+        } else if (hourr == 12) {
+            output = hour + "." + mins + "pm";
+        }
+       else {
+           hourr = hourr - 12;
+           output = hourr + "." + mins + "pm";
+        }
        return output;
     }
 

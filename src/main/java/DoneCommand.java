@@ -4,7 +4,10 @@ import java.io.IOException;
  * Execute Done command in Duke.
  */
 public class DoneCommand extends Command {
-    String command;
+
+
+    private String command;
+
     /**
      *  Done Command constructor using string user input
      * @param command user String input
@@ -13,6 +16,7 @@ public class DoneCommand extends Command {
         super(command);
         this.command = command;
     }
+
     /**
      * Execute the Done command
      * @param task Tasklist data
@@ -21,7 +25,7 @@ public class DoneCommand extends Command {
      * @throws DukeException if any of raw values are invalid
      */
     @Override
-    public void execute(TaskList task,Ui ui,Storage storage) throws DukeException {
+    public void execute(TaskList task, Ui ui, Storage storage) throws DukeException {
         try {
             String[] donearr = command.split(" ");
             try {
@@ -36,8 +40,7 @@ public class DoneCommand extends Command {
             int no = Integer.parseInt(donearr[1]) ;
             if(task.getCount() < no) {
                 throw new DukeException("SSS");
-            }
-            else {
+            } else {
                 Task donetask = task.getTaskList().get(no);
 
                 System.out.println("     Nice! I've marked this task as done:");
@@ -49,8 +52,7 @@ public class DoneCommand extends Command {
                     System.out.println(e);
                 }
             }
-        }
-        catch(IndexOutOfBoundsException e) {
+        } catch(IndexOutOfBoundsException e) {
             throw new DukeException("     ☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
         }
 

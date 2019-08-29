@@ -5,7 +5,7 @@
 import java.io.IOException;
 
 public class DeadlineCommand extends Command {
-    String command;
+    private String command;
 
     /**
      * Deadline constructor with string command
@@ -24,7 +24,7 @@ public class DeadlineCommand extends Command {
      * @throws DukeException if any of raw values are invalid
      */
     @Override
-    public void execute(TaskList task,Ui ui,Storage storage) throws DukeException {
+    public void execute(TaskList task, Ui ui, Storage storage) throws DukeException {
         try {
             String[] deadlinetask = command.split("deadline ");
             String deadlineString = deadlinetask[1];
@@ -48,8 +48,7 @@ public class DeadlineCommand extends Command {
             } catch (IOException e) {
                 System.out.println(e);
             }
-        }
-        catch (ArrayIndexOutOfBoundsException e) {
+        } catch (ArrayIndexOutOfBoundsException e) {
             throw new DukeException("    ☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
         }
     }

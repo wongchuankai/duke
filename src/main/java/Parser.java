@@ -5,7 +5,6 @@
 public class Parser {
     
     public Parser() {
-
     }
 
     /**
@@ -35,8 +34,7 @@ public class Parser {
         } else if (command.startsWith("delete ")) {
             DeleteCommand c = new DeleteCommand(command);
             return c;
-        }
-        else  {
+        } else {
             WrongCommand c = new WrongCommand(command);
             return c;
         }

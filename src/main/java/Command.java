@@ -12,6 +12,7 @@ public class Command {
         this.command = command;
     }
 
+
     /**
      *  Execute the command
      * @param task Tasklist data
@@ -19,8 +20,8 @@ public class Command {
      * @param storage stored file
      * @throws DukeException if any of raw values are invalid
      */
-    public void execute(TaskList task,Ui ui,Storage storage) throws DukeException{
 
+    public void execute(TaskList task, Ui ui, Storage storage) throws DukeException {
     }
     
     public boolean isExit() {

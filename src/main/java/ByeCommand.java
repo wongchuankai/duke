@@ -19,7 +19,7 @@ public class ByeCommand extends Command {
      * @param storage stored file
      */
     @Override
-    public void execute(TaskList task,Ui ui,Storage storage) {
+    public void execute(TaskList task, Ui ui, Storage storage) {
         System.out.println("      Bye. Hope to see you again soon!");
     }
 

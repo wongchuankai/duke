@@ -10,7 +10,6 @@ public class TaskList {
 
     public TaskList() {
         tasklist = new ArrayList<>();
-        
     }
 
     /**
