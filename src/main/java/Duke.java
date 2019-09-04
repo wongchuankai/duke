@@ -1,12 +1,18 @@
 import java.util.*;
 import java.io.*;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.stage.Stage;
+import javafx.event.EventTarget;
+
 
 /**
  * Entry point of Duke application.
  * Initialises the application and starts the interaction withthe user.
  */
 
-public class Duke {
+public class Duke extends Application{
 
     /**
      * Initialises necessary classes and variables
@@ -61,5 +67,14 @@ public class Duke {
      */
     public static void main(String[] args) {
         new Duke("Tasklist.txt").run();
+    }
+
+    @Override
+    public void start(Stage stage) {
+        Label helloWorld = new Label("Hello World!"); // Creating a new Label control
+        Scene scene = new Scene(helloWorld); // Setting the scene to be our Label
+
+        stage.setScene(scene); // Setting the stage to show our screen
+        stage.show(); // Render the stage.
     }
 }
