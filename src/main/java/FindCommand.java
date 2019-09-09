@@ -3,11 +3,13 @@ import java.util.ArrayList;
 /**
  * Execute the Find command in Duke.
  */
-public class FindCommand extends Command{
+
+public class FindCommand extends Command {
 
     private String command;
+
     /**
-     *  Find Command constructor using string user input
+     *  Find Command constructor using string user input.
      * @param command user String input
      */
     public FindCommand(String command) {
@@ -16,7 +18,7 @@ public class FindCommand extends Command{
     }
 
     /**
-     * Execute the Find command
+     * Execute the Find command.
      * @param task Tasklist data
      * @param ui Ui interfaces and strings
      * @param storage stored file
@@ -33,17 +35,17 @@ public class FindCommand extends Command{
 
         boolean none = true;
 
-        for(int i = 0; i <tasklist.size();i++) {
+        for (int i = 0; i < tasklist.size();i++) {
             Task t = tasklist.get(i);
             boolean check = t.getDescription().contains(search);
-            if(check) {
+            if (check) {
                 none = false;
-                output+=("     " + (i+1) + "." + t.toString()+"\n");
+                output += ("     " + (i + 1) + "." + t.toString() + "\n");
             }
         }
 
         if (none) {
-            output+=("     Cannot Find any matching task in the list.\n");
+            output += ("     Cannot Find any matching task in the list.\n");
         }
 
         return output;

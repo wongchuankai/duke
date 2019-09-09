@@ -9,7 +9,7 @@ public class DoneCommand extends Command {
     private String command;
 
     /**
-     *  Done Command constructor using string user input
+     *  Done Command constructor using string user input.
      * @param command user String input
      */
     public DoneCommand(String command) {
@@ -18,7 +18,7 @@ public class DoneCommand extends Command {
     }
 
     /**
-     * Execute the Done command
+     * Execute the Done command.
      * @param task Tasklist data
      * @param ui Ui interfaces and strings
      * @param storage stored file
@@ -39,7 +39,7 @@ public class DoneCommand extends Command {
             }
 
             int no = Integer.parseInt(donearr[1]) - 1;
-            if(task.getCount() < no) {
+            if (task.getCount() < no) {
                 throw new DukeException("SSS");
             } else {
                 Task donetask = task.getTaskList().get(no);
@@ -53,7 +53,7 @@ public class DoneCommand extends Command {
                     System.out.println(e);
                 }
             }
-        } catch(IndexOutOfBoundsException e) {
+        } catch (IndexOutOfBoundsException e) {
             throw new DukeException("     ☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
         }
 

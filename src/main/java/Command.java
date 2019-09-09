@@ -5,16 +5,16 @@ public class Command {
     private String command;
 
     /**
-     *  Command constructor using string user input
+     *  Command constructor using string user input.
      * @param command user String input
      */
-    public Command (String command) {
+    public Command(String command) {
         this.command = command;
     }
 
 
     /**
-     *  Execute the command
+     *  Execute the command.
      * @param task Tasklist data
      * @param ui Ui interfaces and strings
      * @param storage stored file

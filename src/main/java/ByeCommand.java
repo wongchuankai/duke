@@ -13,7 +13,7 @@ public class ByeCommand extends Command {
     }
 
     /**
-     * Execute the bye command
+     * Execute the bye command.
      * @param task Tasklist data
      * @param ui Ui interfaces and strings
      * @param storage stored file
@@ -24,7 +24,7 @@ public class ByeCommand extends Command {
     }
 
     /**
-     * Bye command means exit. return true
+     * Bye command means exit. return true.
      * @return return true
      */
     @Override 

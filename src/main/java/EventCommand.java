@@ -8,7 +8,7 @@ public class EventCommand extends Command {
     private String command;
 
     /**
-     *  Event Command constructor using string user input
+     *  Event Command constructor using string user input.
      * @param command user String input
      */
     public EventCommand(String command) {
@@ -17,7 +17,7 @@ public class EventCommand extends Command {
     }
 
     /**
-     * Execute the Event command
+     * Execute the Event command.
      * @param task Tasklist data
      * @param ui Ui interfaces and strings
      * @param storage stored file
@@ -37,7 +37,7 @@ public class EventCommand extends Command {
         output += ("     Now you have " + numberOfTask + " tasks in the list.\n");
         int checkdone = event.isDone ? 1 : 0;
         try {
-            storage.appendToFile(checkdone + "/event/" + event.description + "/" + event.at+System.lineSeparator() );
+            storage.appendToFile(checkdone + "/event/" + event.description + "/" + event.at + System.lineSeparator());
         } catch (IOException e) {
             System.out.println(e);
         }

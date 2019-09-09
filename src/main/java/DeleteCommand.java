@@ -8,7 +8,7 @@ public class DeleteCommand extends Command {
     private String command;
 
     /**
-     *  Delete Command constructor using string user input
+     *  Delete Command constructor using string user input.
      * @param command user String input
      */
     public DeleteCommand(String command) {
@@ -17,7 +17,7 @@ public class DeleteCommand extends Command {
     }
 
     /**
-     * Execute the Delete command
+     * Execute the Delete command.
      * @param task Tasklist data
      * @param ui Ui interfaces and strings
      * @param storage stored file
@@ -34,8 +34,8 @@ public class DeleteCommand extends Command {
         task.deleteTask(number);
         output += ("     Now you have " + task.getCount() + " tasks in the list.\n");
         try {
-            storage.DeleteWrite(number);
-        } catch (IOException e){
+            storage.deleteWrite(number);
+        } catch (IOException e) {
             System.out.println(e);
         }
         return output;

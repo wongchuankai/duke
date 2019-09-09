@@ -1,8 +1,8 @@
 /**
- * Date and 24 format of by in deadline task
+ * Date and 24 format of by in deadline task.
  */
 
-public class time {
+public class Time {
 
     private String day;
     private String month;
@@ -10,72 +10,55 @@ public class time {
     private String time;
 
     /**
-     * Constructor for time
+     * Constructor for time.
      * @param day DD
      * @param month MM
      * @param year YYYY
      * @param time has to be in 24 hour format
      */
-    public time (int day, int month, int year, String time) {
-        if(day == 1) {
-            this.day = day +"st";
-        }
-        else if (day == 2) {
+    public Time(int day, int month, int year, String time) {
+        if (day == 1) {
+            this.day = day + "st";
+        } else if (day == 2) {
             this.day = day + "nd";
-        }
-        else if (day == 3) {
+        } else if (day == 3) {
             this.day = day + "rd";
-        }
-        else {
+        } else {
             this.day = day + "th";
         }
-
         if (month == 1) {
             this.month = "January";
-        }
-        else if (month == 2) {
+        } else if (month == 2) {
             this.month = "February";
-        }
-        else if (month == 3) {
+        } else if (month == 3) {
             this.month = "March";
-        }
-
-        else if (month == 4) {
+        } else if (month == 4) {
             this.month = "April";
-        }
-        else if (month == 5) {
+        } else if (month == 5) {
             this.month = "May";
-        }
-        else if (month == 6) {
+        } else if (month == 6) {
             this.month = "June";
-        }
-        else if (month == 7) {
+        } else if (month == 7) {
             this.month = "July";
-        }
-        else if (month == 8) {
+        } else if (month == 8) {
             this.month = "August";
-        }
-        else if (month == 9) {
+        } else if (month == 9) {
             this.month = "September";
-        }
-        else if (month == 10) {
+        } else if (month == 10) {
             this.month = "October";
-        }
-        else if (month == 11) {
+        } else if (month == 11) {
             this.month = "November";
-        }
-        else if (month == 12) {
+        } else if (month == 12) {
             this.month = "December";
         }
-        this.year = year +"";
+        this.year = year + "";
         //1800
         this.time = convert(time);
-
     }
 
     /**
-     * convert the string input of by to the needed format
-     * @param time
+     * convert the string input of by to the needed format.
+     * @param time time
      * @return
      */
 
@@ -85,16 +68,15 @@ public class time {
         String hour = time.charAt(0) + "" + time.charAt(1);
         String mins = time.charAt(2) + "" + time.charAt(3);
         int hourr = Integer.parseInt(hour);
-        if (hourr<12) {
+        if (hourr < 12) {
             output = hour + "." + mins + "am";
         } else if (hourr == 12) {
             output = hour + "." + mins + "pm";
+        } else {
+            hourr = hourr - 12;
+            output = hourr + "." + mins + "pm";
         }
-       else {
-           hourr = hourr - 12;
-           output = hourr + "." + mins + "pm";
-        }
-       return output;
+        return output;
     }
 
     public String toString() {

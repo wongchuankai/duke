@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Scanner;
 
 /**
  * Text Ui of the application.
@@ -7,7 +7,7 @@ public class Ui {
 
     private final Scanner input;
     
-    /** UI interface divider lines* */
+    /** UI interface divider lines.**/
     private static final String DIVIDER_LINES = "    ____________________________________________________________";
 
     public Ui() {
@@ -20,10 +20,10 @@ public class Ui {
 
     public String showWelcome() {
         String logo = " ____        _        \n"
-        + "|  _ \\ _   _| | _____ \n"
-        + "| | | | | | | |/ / _ \\\n"
-        + "| |_| | |_| |   <  __/\n"
-        + "|____/ \\__,_|_|\\_\\___|\n";
+                + "|  _ \\ _   _| | _____ \n"
+                + "| | | | | | | |/ / _ \\\n"
+                + "| |_| | |_| |   <  __/\n"
+                + "|____/ \\__,_|_|\\_\\___|\n";
         logo = ("Hello from\n" + logo);
         logo = ("Hello! I'm Duke");
         logo = ("What can I do for you?");
@@ -31,7 +31,7 @@ public class Ui {
     }
 
     /**
-     * Read user input
+     * Read user input.
      * @return
      */
     public String readCommand() {
@@ -40,21 +40,21 @@ public class Ui {
     }
 
     /**
-     * show the divider lines
+     * show the divider lines.
      */
     public String showLine() {
         return (DIVIDER_LINES);
     }
 
     /**
-     * show loading error
+     * show loading error.
      */
     public String showLoadingError() {
         return ("Loading Error. New tasklist will be created");
     }
 
     /**
-     * shows any error if there is thrown
+     * shows any error if there is thrown.
      * @param message error message
      */
     public String showError(String message) {

@@ -1,5 +1,10 @@
-import java.util.*;
-import java.io.*;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Represents the file used to store task in duke.
@@ -12,7 +17,7 @@ public class Storage {
     private ArrayList<Task> taskArrayList;
 
     /**
-     * Storage constructor with filepath of data
+     * Storage constructor with filepath of data.
      * @param filePath data filepath
      */
     public Storage(String filePath) {
@@ -25,7 +30,7 @@ public class Storage {
      * Loads the {@code Duke} data from this storage file, and returns it.
      * @return Task data in file. Returns empty task list if file is empty.
      * @throws DukeException errors when reading file or empty file
-     * @throws IOException
+     * @throws IOException loading error
      */
     public ArrayList<Task> load() throws DukeException,IOException {
         scan = new Scanner(file);
@@ -42,29 +47,29 @@ public class Storage {
                     }
                     taskArrayList.add(scannedDo);
                 } else if (scanned[1].equals("event")) {
-                    Event scannedEvent = new Event(scanned[2],scanned[3]);
-                    if(scanned[0].equals("1")) {
+                    Event scannedEvent = new Event(scanned[2], scanned[3]);
+                    if (scanned[0].equals("1")) {
                         scannedEvent.markAsDone();
                     }
                     taskArrayList.add(scannedEvent);
                 } else if (scanned[1].equals("deadline")) {
-                    Deadline scannedDeadline = new Deadline(scanned[2],scanned[3]);
-                    if(scanned[0].equals("1")) {
-                    scannedDeadline.markAsDone();
+                    Deadline scannedDeadline = new Deadline(scanned[2], scanned[3]);
+                    if (scanned[0].equals("1")) {
+                        scannedDeadline.markAsDone();
                     }
                     taskArrayList.add(scannedDeadline);
                 }
             }
-        return taskArrayList;
-        } catch(Exception e) {
-        throw new DukeException("LOADING ERROR");
+            return taskArrayList;
+        } catch (Exception e) {
+            throw new DukeException("LOADING ERROR");
         }
     }
 
     /**
      * Append data to file without modifying original data.
      * @param textToAppend String to be added to file
-     * @throws IOException
+     * @throws IOException loading error
      */
     public void appendToFile(String textToAppend) throws IOException {
         FileWriter fw = new FileWriter(filePath,true);
@@ -74,22 +79,23 @@ public class Storage {
 
     /**
      * Change the done status in task file according to the line number specified by user.
-     * @param LineNumber task number done
+     * @param linenumber task number done
      * @param task task done
-     * @throws IOException
+     * @throws IOException writing error
      */
-    public void writeDone(int LineNumber, Task task) throws IOException {
-        File filetobemodified = new File(filePath);
+    public void writeDone(int linenumber, Task task) throws IOException {
+        File modifiedfile = new File(filePath);
         String oldContent = "";
-        BufferedReader reader = new BufferedReader(new FileReader(filetobemodified));
+        BufferedReader reader = new BufferedReader(new FileReader(modifiedfile));
         String line = reader.readLine();
         int number = 0;
         while (line != null) {
-            if (number != LineNumber) {
+            if (number != linenumber) {
                 oldContent = oldContent + line + System.lineSeparator();
                 number++;
                 line = reader.readLine();
-            } else {//replace first character with 1
+            } else {
+                //replace first character with 1
                 line = line.replaceFirst("0","1");
                 oldContent = oldContent + line + System.lineSeparator();
                 number++;
@@ -99,6 +105,13 @@ public class Storage {
         writeToFile(filePath,oldContent);
     }
 
+    /**
+     * Writing data into file.
+     * @param filePath filepath
+     * @param textToAdd data to be added into file
+     * @throws IOException writing file error
+     */
+
     public void writeToFile(String filePath,String textToAdd)  throws IOException {
         FileWriter fw = new FileWriter(filePath);
         fw.write(textToAdd);
@@ -107,17 +120,17 @@ public class Storage {
 
     /**
      * Delete the specified task indicated by user.
-     * @param Linenumber task number to be deleted.
-     * @throws IOException
+     * @param linenumber task number to be deleted.
+     * @throws IOException deleting file error
      */
-    public void DeleteWrite(int Linenumber) throws IOException {
+    public void deleteWrite(int linenumber) throws IOException {
         File filetobemodified = new File(filePath);
         String oldContent = "";
         BufferedReader reader = new BufferedReader(new FileReader(filetobemodified));
         String line = reader.readLine();
         int number = 0;
         while (line != null) {
-            if (number != Linenumber) {
+            if (number != linenumber) {
                 oldContent = oldContent + line + System.lineSeparator();
                 number++;
                 line = reader.readLine();

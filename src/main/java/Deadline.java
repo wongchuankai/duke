@@ -1,12 +1,12 @@
 /**
- * Deadline task of Duke
+ * Deadline task of Duke.
  */
 public class Deadline extends Task {
 
     protected String by;
 
     /**
-     * Deadline constructor with description and by as string
+     * Deadline constructor with description and by as string.
      * @param description description of tasks
      * @param by deadline date. Has to be in the format "DD/MM/YYYY 24hour"
      */
@@ -18,6 +18,7 @@ public class Deadline extends Task {
     public String getBy() {
         return by;
     }
+
     @Override
     public String toString() {
         return "[D]" + super.toString() + " (by: " + by + ")";

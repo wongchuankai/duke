@@ -1,5 +1,3 @@
-import java.util.*;
-import java.io.*;
 import javafx.application.Application;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -18,12 +16,14 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.io.IOException;
+
 /**
  * Entry point of Duke application.
  * Initialises the application and starts the interaction withthe user.
  */
 
-public class Duke extends Application{
+public class Duke extends Application {
 
     private ScrollPane scrollPane;
     private VBox dialogContainer;
@@ -32,7 +32,7 @@ public class Duke extends Application{
     private Scene scene;
 
     /**
-     * Initialises necessary classes and variables
+     * Initialises necessary classes and variables.
      */
     private Storage storage;
     private TaskList tasks;
@@ -42,6 +42,7 @@ public class Duke extends Application{
     private Image user = new Image(this.getClass().getResourceAsStream("/images/DaUser.png"));
     private Image duke = new Image(this.getClass().getResourceAsStream("/images/DaDuke.png"));
     // ...
+
     /**
      * Read the stored data in the file and executes it.
      *
@@ -64,10 +65,9 @@ public class Duke extends Application{
      *  Runs the program until termination.
      */
     public void run() {
-
- //       ui.showWelcome();
+        //ui.showWelcome();
         boolean isExit = false;
-     /*   while (!isExit) {
+        /*while (!isExit) {
             try {
                 String fullCommand = ui.readCommand();
                 ui.showLine(); // show the divider line ("_______")
@@ -84,8 +84,8 @@ public class Duke extends Application{
     }
 
     /**
-     * Main method which runs the program
-     * @param args
+     * Main method which runs the program.
+     * @param args null
      */
     public static void main(String[] args) {
         //new Duke().run();
@@ -143,7 +143,7 @@ public class Duke extends Application{
         AnchorPane.setBottomAnchor(sendButton, 1.0);
         AnchorPane.setRightAnchor(sendButton, 1.0);
 
-        AnchorPane.setLeftAnchor(userInput , 1.0);
+        AnchorPane.setLeftAnchor(userInput, 1.0);
         AnchorPane.setBottomAnchor(userInput, 1.0);
 
         // more code to be added here later
@@ -165,6 +165,7 @@ public class Duke extends Application{
         });
         //Scroll down to the end every time dialogContainer's height changes.
     }
+
     /**
      * Iteration 1:
      * Creates a label with the specified text and adds it to the dialog container.
@@ -178,6 +179,7 @@ public class Duke extends Application{
 
         return textToAdd;
     }
+
     /**
      * Iteration 2:
      * Creates two dialog boxes, one echoing user input and the other containing Duke's reply and then appends them to
@@ -199,8 +201,7 @@ public class Duke extends Application{
         Duke duke = new Duke();
         if (!input.contains("bye")) {
             return new Parser().parse(input).execute(duke.tasks,duke.ui,duke.storage);
-        }
-        else {
+        } else {
             return "Good Bye!!!";
         }
     }

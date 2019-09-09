@@ -8,6 +8,9 @@ plugins {
 checkstyle {
     toolVersion = '8.23'
 }
+checkstyleMain {
+    source ='src/main/java'
+}
 group 'seedu.duke'
 version '0.1.0'
 

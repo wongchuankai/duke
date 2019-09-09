@@ -1,5 +1,5 @@
 /**
- * Task of Duke
+ * Task of Duke.
  */
 public class Task {
 
@@ -7,7 +7,7 @@ public class Task {
     protected boolean isDone;
 
     /**
-     * Task Constructor with description and at as string
+     * Task Constructor with description and at as string.
      * @param description description of tasks
      */
     public Task(String description) {
@@ -16,7 +16,7 @@ public class Task {
     }
 
     /**
-     * returns done status. Tick if done and cross if not done
+     * returns done status. Tick if done and cross if not done.
      * @return status icon as string
      */
     //✓u2713
@@ -34,7 +34,7 @@ public class Task {
     }
 
     /**
-     * mark the task as done
+     * mark the task as done.
      */
     public void markAsDone() {
         this.isDone = true;

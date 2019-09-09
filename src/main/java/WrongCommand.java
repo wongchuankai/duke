@@ -8,7 +8,7 @@ public class WrongCommand extends Command {
     private String command;
 
     /**
-     * WrongCommand constructor with string command
+     * WrongCommand constructor with string command.
      * @param command user string input
      */
     public WrongCommand(String command) {
@@ -17,7 +17,7 @@ public class WrongCommand extends Command {
     }
 
     /**
-     * Execute the Wrong command
+     * Execute the Wrong command.
      * @param task Tasklist data
      * @param ui Ui interfaces and strings
      * @param storage stored file
@@ -25,7 +25,7 @@ public class WrongCommand extends Command {
      */
     @Override
     public String execute(TaskList task, Ui ui, Storage storage) throws DukeException {
-       return "     ☹ OOPS!!! I'm sorry, but I don't know what that means :-(";
+        return "     ☹ OOPS!!! I'm sorry, but I don't know what that means :-(";
     }
 
 }

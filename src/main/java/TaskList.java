@@ -13,7 +13,7 @@ public class TaskList {
     }
 
     /**
-     *
+     * Get the task list.
      * @return
      */
     public ArrayList<Task> getTaskList() {
@@ -21,7 +21,7 @@ public class TaskList {
     }
 
     /**
-     * constructor with task list from storage
+     * constructor with task list from storage.
      * @param tasklist from storage class
      */
     public TaskList(ArrayList<Task> tasklist) {
@@ -29,8 +29,8 @@ public class TaskList {
     }
 
     /**
-     * add task to the list
-     * @param task
+     * add task to the list.
+     * @param task task
      */
     public void addTask(Task task) {
         tasklist.add(task);
@@ -42,7 +42,7 @@ public class TaskList {
     }
 
     /**
-     * delete task in the list
+     * delete task in the list.
      * @param number task number
      */
     public void deleteTask(int number) {

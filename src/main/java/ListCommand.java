@@ -5,7 +5,7 @@
 public class ListCommand extends Command {
 
     /**
-     *  List Command constructor using string user input
+     *  List Command constructor using string user input.
      * @param command user String input
      */
     public ListCommand(String command) {
@@ -13,7 +13,7 @@ public class ListCommand extends Command {
     }
 
     /**
-     * Execute the List command
+     * Execute the List command.
      * @param task Tasklist data
      * @param ui Ui interfaces and strings
      * @param storage stored file
@@ -22,10 +22,10 @@ public class ListCommand extends Command {
     @Override
     public String execute(TaskList task, Ui ui, Storage storage) throws DukeException {
         String output = "";
-        output +=("     Here are the tasks in your list:\n");
-        for(int i = 0 ;i < task.getCount();i++) {
-             int number = i + 1;
-             output += ("     " + number + "." + task.getTaskList().get(i)+"\n");
+        output += ("     Here are the tasks in your list:\n");
+        for (int i = 0; i < task.getCount(); i++) {
+            int number = i + 1;
+            output += ("     " + number + "." + task.getTaskList().get(i) + "\n");
         }
         return output;
     }

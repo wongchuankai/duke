@@ -8,7 +8,7 @@ public class DeadlineCommand extends Command {
     private String command;
 
     /**
-     * Deadline constructor with string command
+     * Deadline constructor with string command.
      * @param command user string input
      */
     public DeadlineCommand(String command) {
@@ -17,7 +17,7 @@ public class DeadlineCommand extends Command {
     }
 
     /**
-     * Execute the Deadline command
+     * Execute the Deadline command.
      * @param task Tasklist data
      * @param ui Ui interfaces and strings
      * @param storage stored file
@@ -30,14 +30,14 @@ public class DeadlineCommand extends Command {
             String[] deadlinetask = command.split("deadline ");
             String deadlineString = deadlinetask[1];
             String[] deadlinearr = deadlineString.split(" /by ");
-            output +=("     Got it. I've added this task:\n");
+            output += ("     Got it. I've added this task:\n");
             String[] date = deadlinearr[1].split("/");
             String[] tm = date[2].split(" ");
             int day = Integer.parseInt(date[0]);
             int month = Integer.parseInt(date[1]);
             int year = Integer.parseInt(tm[0]);
             String time = tm[1];
-            time t = new time(day, month, year, time);
+            Time t = new Time(day, month, year, time);
             Deadline deadline = new Deadline(deadlinearr[0], t.toString());
             task.addTask(deadline);
             int numberOfTask = task.getCount();
@@ -45,7 +45,8 @@ public class DeadlineCommand extends Command {
             output += ("     Now you have " + numberOfTask + " tasks in the list.\n");
             int checkdone = deadline.isDone ? 1 : 0;
             try {
-                storage.appendToFile(checkdone + "/deadline/" + deadline.description + "/" + deadline.by + System.lineSeparator());
+                String text = checkdone + "/deadline/" + deadline.description + "/" + deadline.by;
+                storage.appendToFile(text + System.lineSeparator());
             } catch (IOException e) {
                 System.out.println(e);
             }
