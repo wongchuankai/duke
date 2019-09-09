@@ -24,8 +24,8 @@ public class WrongCommand extends Command {
      * @throws DukeException if any of raw values are invalid
      */
     @Override
-    public void execute(TaskList task, Ui ui, Storage storage) throws DukeException {
-       throw new DukeException("     ☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
+    public String execute(TaskList task, Ui ui, Storage storage) throws DukeException {
+       return "     ☹ OOPS!!! I'm sorry, but I don't know what that means :-(";
     }
 
 }

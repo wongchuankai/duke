@@ -23,12 +23,13 @@ public class FindCommand extends Command{
      * @throws DukeException if any of raw values are invalid
      */
     @Override
-    public void execute(TaskList task,Ui ui,Storage storage) throws DukeException {
+    public String execute(TaskList task,Ui ui,Storage storage) throws DukeException {
+        String output = "";
         ArrayList<Task> tasklist = task.getTaskList();
 
         String[] strarr = command.split(" ");
         String search = strarr[1];
-        System.out.println("     Here are the matching tasks in your list:");
+        output += ("     Here are the matching tasks in your list:\n");
 
         boolean none = true;
 
@@ -37,14 +38,15 @@ public class FindCommand extends Command{
             boolean check = t.getDescription().contains(search);
             if(check) {
                 none = false;
-                System.out.println("     " + (i+1) + "." + t.toString());
+                output+=("     " + (i+1) + "." + t.toString()+"\n");
             }
         }
 
         if (none) {
-            System.out.println("     Cannot Find any matching task in the list.");
+            output+=("     Cannot Find any matching task in the list.\n");
         }
 
+        return output;
     }
 
 }

@@ -25,7 +25,8 @@ public class DoneCommand extends Command {
      * @throws DukeException if any of raw values are invalid
      */
     @Override
-    public void execute(TaskList task, Ui ui, Storage storage) throws DukeException {
+    public String execute(TaskList task, Ui ui, Storage storage) throws DukeException {
+        String output = "";
         try {
             String[] donearr = command.split(" ");
             try {
@@ -43,9 +44,9 @@ public class DoneCommand extends Command {
             } else {
                 Task donetask = task.getTaskList().get(no);
 
-                System.out.println("     Nice! I've marked this task as done:");
+                output += ("     Nice! I've marked this task as done: \n");
                 donetask.markAsDone();
-                System.out.println("       " + donetask.toString());
+                output += ("       " + donetask.toString() + "\n");
                 try {
                     storage.writeDone(no, donetask);
                 } catch (IOException e) {
@@ -56,7 +57,7 @@ public class DoneCommand extends Command {
             throw new DukeException("     ☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
         }
 
-
+        return output;
     }
 
 }

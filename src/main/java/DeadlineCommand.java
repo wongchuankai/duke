@@ -24,12 +24,13 @@ public class DeadlineCommand extends Command {
      * @throws DukeException if any of raw values are invalid
      */
     @Override
-    public void execute(TaskList task, Ui ui, Storage storage) throws DukeException {
+    public String execute(TaskList task, Ui ui, Storage storage) throws DukeException {
+        String output = "";
         try {
             String[] deadlinetask = command.split("deadline ");
             String deadlineString = deadlinetask[1];
             String[] deadlinearr = deadlineString.split(" /by ");
-            System.out.println("     Got it. I've added this task:");
+            output +=("     Got it. I've added this task:\n");
             String[] date = deadlinearr[1].split("/");
             String[] tm = date[2].split(" ");
             int day = Integer.parseInt(date[0]);
@@ -40,8 +41,8 @@ public class DeadlineCommand extends Command {
             Deadline deadline = new Deadline(deadlinearr[0], t.toString());
             task.addTask(deadline);
             int numberOfTask = task.getCount();
-            System.out.println("       " + deadline.toString());
-            System.out.println("     Now you have " + numberOfTask + " tasks in the list.");
+            output += ("       " + deadline.toString() + "\n");
+            output += ("     Now you have " + numberOfTask + " tasks in the list.\n");
             int checkdone = deadline.isDone ? 1 : 0;
             try {
                 storage.appendToFile(checkdone + "/deadline/" + deadline.description + "/" + deadline.by + System.lineSeparator());
@@ -51,6 +52,7 @@ public class DeadlineCommand extends Command {
         } catch (ArrayIndexOutOfBoundsException e) {
             throw new DukeException("    ☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
         }
+        return output;
     }
 
 }

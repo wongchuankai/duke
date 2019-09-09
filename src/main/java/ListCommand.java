@@ -20,12 +20,14 @@ public class ListCommand extends Command {
      * @throws DukeException if any of raw values are invalid
      */
     @Override
-    public void execute(TaskList task, Ui ui, Storage storage) throws DukeException {
-        System.out.println("     Here are the tasks in your list:");
+    public String execute(TaskList task, Ui ui, Storage storage) throws DukeException {
+        String output = "";
+        output +=("     Here are the tasks in your list:\n");
         for(int i = 0 ;i < task.getCount();i++) {
              int number = i + 1;
-             System.out.println("     " + number + "." + task.getTaskList().get(i));
+             output += ("     " + number + "." + task.getTaskList().get(i)+"\n");
         }
+        return output;
     }
     
 }
