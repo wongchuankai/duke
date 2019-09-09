@@ -18,15 +18,16 @@ public class Ui {
      * Generates and print the welcome message upon the start of the application.
      */
 
-    public void showWelcome() {
+    public String showWelcome() {
         String logo = " ____        _        \n"
         + "|  _ \\ _   _| | _____ \n"
         + "| | | | | | | |/ / _ \\\n"
         + "| |_| | |_| |   <  __/\n"
         + "|____/ \\__,_|_|\\_\\___|\n";
-        System.out.println("Hello from\n" + logo);
-        System.out.println("Hello! I'm Duke");
-        System.out.println("What can I do for you?");
+        logo = ("Hello from\n" + logo);
+        logo = ("Hello! I'm Duke");
+        logo = ("What can I do for you?");
+        return logo;
     }
 
     /**
@@ -41,23 +42,23 @@ public class Ui {
     /**
      * show the divider lines
      */
-    public void showLine() {
-        System.out.println(DIVIDER_LINES);
+    public String showLine() {
+        return (DIVIDER_LINES);
     }
 
     /**
      * show loading error
      */
-    public void showLoadingError() {
-        System.out.println("Loading Error. New tasklist will be created");
+    public String showLoadingError() {
+        return ("Loading Error. New tasklist will be created");
     }
 
     /**
      * shows any error if there is thrown
      * @param message error message
      */
-    public void showError(String message) {
-        System.out.println(message);
+    public String showError(String message) {
+        return (message);
     }
 
 }

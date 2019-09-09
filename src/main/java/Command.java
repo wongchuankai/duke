@@ -21,7 +21,8 @@ public class Command {
      * @throws DukeException if any of raw values are invalid
      */
 
-    public void execute(TaskList task, Ui ui, Storage storage) throws DukeException {
+    public String execute(TaskList task, Ui ui, Storage storage) throws DukeException {
+        return "☹ OOPS!!! I'm sorry, but I don't know what that means :-(";
     }
     
     public boolean isExit() {

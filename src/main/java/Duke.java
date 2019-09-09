@@ -64,9 +64,10 @@ public class Duke extends Application{
      *  Runs the program until termination.
      */
     public void run() {
-        ui.showWelcome();
+
+ //       ui.showWelcome();
         boolean isExit = false;
-        while (!isExit) {
+     /*   while (!isExit) {
             try {
                 String fullCommand = ui.readCommand();
                 ui.showLine(); // show the divider line ("_______")
@@ -79,6 +80,7 @@ public class Duke extends Application{
                 ui.showLine();
             }
         }
+      */
     }
 
     /**
@@ -86,11 +88,12 @@ public class Duke extends Application{
      * @param args
      */
     public static void main(String[] args) {
-        new Duke().run();
+        //new Duke().run();
     }
 
     @Override
     public void start(Stage stage) {
+
         Label helloWorld = new Label("Hello World!"); // Creating a new Label control
         Scene scene = new Scene(helloWorld); // Setting the scene to be our Label
 
@@ -146,15 +149,21 @@ public class Duke extends Application{
         // more code to be added here later
         //Step 3. Add functionality to handle user input.
         sendButton.setOnMouseClicked((event) -> {
-            handleUserInput();
+            try {
+                handleUserInput();
+            } catch (DukeException e) {
+                e.printStackTrace();
+            }
         });
 
         userInput.setOnAction((event) -> {
-            handleUserInput();
+            try {
+                handleUserInput();
+            } catch (DukeException e) {
+                e.printStackTrace();
+            }
         });
         //Scroll down to the end every time dialogContainer's height changes.
-        dialogContainer.heightProperty().addListener((observable) -> scrollPane.setVvalue(1.0));
-
     }
     /**
      * Iteration 1:
@@ -174,7 +183,7 @@ public class Duke extends Application{
      * Creates two dialog boxes, one echoing user input and the other containing Duke's reply and then appends them to
      * the dialog container. Clears the user input after processing.
      */
-    private void handleUserInput() {
+    private void handleUserInput() throws DukeException {
         dialogContainer.getChildren().addAll(
                 DialogBox.getUserDialog(userInput.getText(), user),
                 DialogBox.getDukeDialog(getResponse(userInput.getText()), duke)
@@ -186,8 +195,14 @@ public class Duke extends Application{
      * You should have your own function to generate a response to user input.
      * Replace this stub with your completed method.
      */
-    String getResponse(String input) {
-        return "Duke heard: " + input;
+    String getResponse(String input) throws DukeException {
+        Duke duke = new Duke();
+        if (!input.contains("bye")) {
+            return new Parser().parse(input).execute(duke.tasks,duke.ui,duke.storage);
+        }
+        else {
+            return " Bye. Hope to see you again soon!";
+        }
     }
 
 }

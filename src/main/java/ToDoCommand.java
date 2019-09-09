@@ -24,17 +24,18 @@ public class ToDoCommand extends Command {
      * @throws DukeException if any of raw values are invalid
      */
     @Override
-    public void execute(TaskList task, Ui ui, Storage storage) throws DukeException {
+    public String execute(TaskList task, Ui ui, Storage storage) throws DukeException {
+        String output = "";
         String[] todotask = command.split("todo ");
         if (todotask.length == 1) {
             throw new DukeException(" ☹ OOPS!!! The description of a todo cannot be empty.");
         }
-        System.out.println("     Got it. I've added this task:");
+        output = output + ("     Got it. I've added this task:\n");
         ToDo newToDoTask = new ToDo(todotask[1]);
         task.addTask(newToDoTask);
         int numberOfTask = task.getCount();
-        System.out.println("        " + newToDoTask.toString());
-        System.out.println("     Now you have " + numberOfTask + " tasks in the list.");
+        output= output + ("        " + newToDoTask.toString()) +"\n";
+        output = output +("     Now you have " + numberOfTask + " tasks in the list.\n");
         int checkdone = newToDoTask.isDone ? 1 : 0;
         try {
             String textToAppend = checkdone + "/todo/" + newToDoTask.description + System.lineSeparator();
@@ -42,6 +43,7 @@ public class ToDoCommand extends Command {
         } catch (IOException e) {
             System.out.println(e);
         }
+        return output;
 
     }
 
