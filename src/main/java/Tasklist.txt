@@ -1,9 +1,10 @@
-0/todo/1
 0/todo/homework1
-0/event/hw/here
 0/todo/homework
 0/todo/1
 0/todo/2
 0/todo/h1
 0/todo/123
 0/todo/123
+0/todo/hw
+0/deadline/hw/9th of September 2019, 11.00pm
+0/event/ehre/w
