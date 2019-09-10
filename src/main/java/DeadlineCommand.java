@@ -40,6 +40,7 @@ public class DeadlineCommand extends Command {
             Time t = new Time(day, month, year, time);
             Deadline deadline = new Deadline(deadlinearr[0], t.toString());
             task.addTask(deadline);
+            assert deadline != null;
             int numberOfTask = task.getCount();
             output += ("       " + deadline.toString() + "\n");
             output += ("     Now you have " + numberOfTask + " tasks in the list.\n");
