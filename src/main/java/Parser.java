@@ -37,8 +37,10 @@ public class Parser {
         } else if (command.startsWith("find ")) {
             FindCommand c = new FindCommand(command);
             return c;
-        } else {
-            WrongCommand c = new WrongCommand(command);
+        } else if (command.startsWith("sort ")) {
+            Sort c = new Sort(command);
+            return c;
+        } else { WrongCommand c = new WrongCommand(command);
             return c;
         }
     }

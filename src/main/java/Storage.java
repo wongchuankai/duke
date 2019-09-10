@@ -102,17 +102,16 @@ public class Storage {
                 line = reader.readLine();
             }
         }
-        writeToFile(filePath,oldContent);
+        writeToFile(oldContent);
     }
 
     /**
      * Writing data into file.
-     * @param filePath filepath
      * @param textToAdd data to be added into file
      * @throws IOException writing file error
      */
 
-    public void writeToFile(String filePath,String textToAdd)  throws IOException {
+    public void writeToFile(String textToAdd)  throws IOException {
         FileWriter fw = new FileWriter(filePath);
         fw.write(textToAdd);
         fw.close();
@@ -126,19 +125,51 @@ public class Storage {
     public void deleteWrite(int linenumber) throws IOException {
         File filetobemodified = new File(filePath);
         String oldContent = "";
-        BufferedReader reader = new BufferedReader(new FileReader(filetobemodified));
-        String line = reader.readLine();
-        int number = 0;
-        while (line != null) {
-            if (number != linenumber) {
-                oldContent = oldContent + line + System.lineSeparator();
-                number++;
-                line = reader.readLine();
-            } else {
-                number++;
-                line = reader.readLine();
+        if (linenumber >=0) {
+            BufferedReader reader = new BufferedReader(new FileReader(filetobemodified));
+            String line = reader.readLine();
+            int number = 0;
+            while (line != null) {
+                if (number != linenumber) {
+                    oldContent = oldContent + line + System.lineSeparator();
+                    number++;
+                    line = reader.readLine();
+                } else {
+                    number++;
+                    line = reader.readLine();
+                }
             }
         }
-        writeToFile(filePath,oldContent);
+        writeToFile(oldContent);
+    }
+
+    public void WriteToStorage(TaskList taskList) throws IOException {
+        String write ="";
+        for(int i = 0; i < taskList.getTaskList().size(); i++) {
+            Task task = taskList.getTaskList().get(i);
+            if (task instanceof ToDo) {
+                boolean checkdone = task.isDone;
+                if (checkdone) {
+                    write += "1/todo/" + task.getDescription() + "\n";
+                } else {
+                    write += "0/todo/" + task.getDescription() + "\n";
+                }
+            } else if (task instanceof Deadline) {
+                boolean checkdone = task.isDone;
+                if (checkdone) {
+                    write += "1/deadline/"+task.getDescription() + "/" + ((Deadline) task).getBy() + "\n";
+                } else {
+                    write += "0/deadline/"+task.getDescription() + "/" + ((Deadline) task).getBy() + "\n";
+                }
+            } else {
+                boolean checkdone = task.isDone;
+                if (checkdone) {
+                    write += "1/event/"+task.getDescription() + "/" + ((Event) task).getAt() + "\n";
+                } else {
+                    write += "0/event/"+task.getDescription() + "/" + ((Event) task).getAt() + "\n";
+                }
+            }
+        }
+        writeToFile(write);
     }
 }
