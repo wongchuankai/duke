@@ -29,9 +29,19 @@ public class DeleteCommand extends Command {
         String[] deletearr = command.split(" ");
         try {
             assert deletearr.length > 1 : " Please input the task number you want to delete";
-            assert deletearr.length < 3 : " Please only input a single number for the task you want to delete";
             if (deletearr.length == 1 || deletearr.length > 2) {
                 throw new DukeException(" ☹ OOPS!!! Please input the task that you want to delete.");
+            }
+            if (deletearr[1].equals("all")) {
+                try {
+                    storage.deleteWrite(-1);
+                } catch (IOException e) {
+                    return "ERROR";
+                }
+                output += "     Noted. I've removed all tasks.\n";
+                output += "     Now you have 0 task in the list.\n";
+                task.deleteAll();
+                return output;
             }
             int number = Integer.parseInt(deletearr[1]) - 1;
             Task deletetask = task.getTaskList().get(number);

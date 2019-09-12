@@ -22,6 +22,7 @@ public class Sort extends Command{
         String[] getSortingOrder = command.split(" ");
         if (getSortingOrder[1].equals("1") || getSortingOrder[1].equals("desc")) {
             String desc = "     Here are the tasks in your list:\n";
+            desc += "     Sorted according to desc of task.\n";
             task.SortByDescription();
             try {
                 storage.WriteToStorage(task);
@@ -34,6 +35,7 @@ public class Sort extends Command{
             return desc;
         } else if (getSortingOrder[1].equals("2") || getSortingOrder[1].equals("type")) {
             String desc = "     Here are the tasks in your list:\n";
+            desc += "     Sorted according to type of task.\n";
             task.SortByType();
             try {
                 storage.WriteToStorage(task);
