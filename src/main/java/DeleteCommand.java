@@ -27,17 +27,12 @@ public class DeleteCommand extends Command {
     public String execute(TaskList task, Ui ui, Storage storage) throws DukeException {
         String output = "";
         String[] deletearr = command.split(" ");
-        if (deletearr[1].equals("all")) {
-            try {
-                storage.deleteWrite(-1);
-            } catch (IOException e) {
-                return "ERROR";
+        try {
+            assert deletearr.length > 1 : " Please input the task number you want to delete";
+            assert deletearr.length < 3 : " Please only input a single number for the task you want to delete";
+            if (deletearr.length == 1 || deletearr.length > 2) {
+                throw new DukeException(" ☹ OOPS!!! Please input the task that you want to delete.");
             }
-            output += "     Noted. I've removed all tasks.\n";
-            output += "     Now you have 0 task in the list.\n";
-            task.deleteAll();
-            return output;
-        } else {
             int number = Integer.parseInt(deletearr[1]) - 1;
             Task deletetask = task.getTaskList().get(number);
             output += ("     Noted. I've removed this task:\n");
@@ -50,6 +45,10 @@ public class DeleteCommand extends Command {
                 System.out.println(e);
             }
             return output;
+        } catch (AssertionError e) {
+            return e.toString();
+        } catch (DukeException e) {
+            return e.toString();
         }
     }
 
