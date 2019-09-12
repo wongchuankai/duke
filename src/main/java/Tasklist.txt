@@ -1,6 +1,11 @@
-0/todo/123
-1/deadline/hw/9th of September 2119, 11.00pm
-0/event/ehre/w
 0/deadline/hw/9th of September 19, 10.42am
-0/event/a/here
-0/todo/1
+1/todo/1
+1/todo/2
+0/todo/hw
+0/todo/2
+0/todo/2
+0/todo/hw
+0/todo/hw 1
+0/todo/hw 2
+0/todo/2
+1/todo/w
