@@ -21,13 +21,16 @@ public class DeadlineCommand extends Command {
      * @param task Tasklist data
      * @param ui Ui interfaces and strings
      * @param storage stored file
-     * @throws DukeException if any of raw values are invalid
      */
     @Override
-    public String execute(TaskList task, Ui ui, Storage storage) throws DukeException {
+    public String execute(TaskList task, Ui ui, Storage storage) {
         String output = "";
         try {
             String[] deadlinetask = command.split("deadline ");
+            assert deadlinetask.length > 0 : " Must input deadline task";
+            if (deadlinetask.length == 0) {
+                throw new DukeException(" ☹ OOPS!!! The description of a Deadline cannot be empty.");
+            }
             String deadlineString = deadlinetask[1];
             String[] deadlinearr = deadlineString.split(" /by ");
             output += ("     Got it. I've added this task:\n");
@@ -51,8 +54,10 @@ public class DeadlineCommand extends Command {
             } catch (IOException e) {
                 System.out.println(e);
             }
-        } catch (ArrayIndexOutOfBoundsException e) {
-            throw new DukeException("    ☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
+        } catch (DukeException e) {
+            return e.toString();
+        } catch (AssertionError e) {
+            return e.toString();
         }
         return output;
     }

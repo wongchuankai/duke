@@ -27,21 +27,31 @@ public class EventCommand extends Command {
     public String execute(TaskList task, Ui ui, Storage storage) throws DukeException {
         String output = "";
         String[] eventtask = command.split("event ");
-        String eventString = eventtask[1];
-        String[] eventarr = eventString.split(" /at ");
-        output += ("     Got it. I've added this task:\n");
-        Event event = new Event(eventarr[0], eventarr[1]);
-        task.addTask(event);
-        int numberOfTask = task.getCount();
-        output += ("       " + event.toString() + "\n");
-        output += ("     Now you have " + numberOfTask + " tasks in the list.\n");
-        int checkdone = event.isDone ? 1 : 0;
         try {
-            storage.appendToFile(checkdone + "/event/" + event.description + "/" + event.at + System.lineSeparator());
-        } catch (IOException e) {
-            System.out.println(e);
+            assert eventtask.length > 0 : " Must input event task";
+            if (eventtask.length == 0) {
+                throw new DukeException(" ☹ OOPS!!! The description of an Event cannot be empty.");
+            }
+            String eventString = eventtask[1];
+            String[] eventarr = eventString.split(" /at ");
+            output += ("     Got it. I've added this task:\n");
+            Event event = new Event(eventarr[0], eventarr[1]);
+            task.addTask(event);
+            int numberOfTask = task.getCount();
+            output += ("       " + event.toString() + "\n");
+            output += ("     Now you have " + numberOfTask + " tasks in the list.\n");
+            int checkdone = event.isDone ? 1 : 0;
+            try {
+                storage.appendToFile(checkdone + "/event/" + event.description + "/" + event.at + System.lineSeparator());
+            } catch (IOException e) {
+                System.out.println(e);
+            }
+            return output;
+        } catch (AssertionError e) {
+            return e.toString();
+        } catch (DukeException e) {
+            return e.toString();
         }
-        return output;
     }
 
 }

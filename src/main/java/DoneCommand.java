@@ -27,37 +27,33 @@ public class DoneCommand extends Command {
     @Override
     public String execute(TaskList task, Ui ui, Storage storage) throws DukeException {
         String output = "";
+        String[] donearr = command.split(" ");
         try {
-            String[] donearr = command.split(" ");
-            try {
-                int x = Integer.parseInt(donearr[1]);
-            } catch (NumberFormatException e) {
-                throw new DukeException("Done _ must be a number");
+            assert donearr.length > 1 : " Please enter the task number to be marked done.";
+            assert donearr.length < 3 : " Please only enter a single digit to mark the task done.";
+            if (donearr.length == 1 || donearr.length > 2) {
+                throw new DukeException(" Please enter a single task number to be marked done.}");
             }
-            if (donearr.length == 1) {
-                throw new DukeException(" ☹ OOPS!!! Which task do you want to complete?");
-            }
-
+            Integer.parseInt(donearr[1]);
             int no = Integer.parseInt(donearr[1]) - 1;
-            if (task.getCount() < no) {
-                throw new DukeException("SSS");
-            } else {
-                Task donetask = task.getTaskList().get(no);
-
-                output += ("     Nice! I've marked this task as done: \n");
-                donetask.markAsDone();
-                output += ("       " + donetask.toString() + "\n");
-                try {
-                    storage.writeDone(no, donetask);
-                } catch (IOException e) {
-                    System.out.println(e);
-                }
+            Task donetask = task.getTaskList().get(no);
+            output += ("     Nice! I've marked this task as done: \n");
+            donetask.markAsDone();
+            output += ("       " + donetask.toString() + "\n");
+            try {
+                storage.writeDone(no, donetask);
+            } catch (IOException e) {
+                System.out.println(e);
             }
-        } catch (IndexOutOfBoundsException e) {
-            throw new DukeException("     ☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
+            return output;
+        } catch (AssertionError e) {
+            return e.toString();
+        } catch (DukeException e) {
+            //throw new DukeException("     ☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
+            return e.toString();
+        } catch (NumberFormatException e) {
+            return "Format is Done_<Integer>. Cannot be alphabets.";
         }
-
-        return output;
     }
 
 }
