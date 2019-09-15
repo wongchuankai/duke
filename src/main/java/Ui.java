@@ -1,42 +1,23 @@
-import java.util.Scanner;
-
 /**
  * Text Ui of the application.
  */
 public class Ui {
 
-    private final Scanner input;
-    
     /** UI interface divider lines.**/
-    private static final String DIVIDER_LINES = "    ____________________________________________________________";
-
-    public Ui() {
-        this.input = new Scanner(System.in);
-    }
+    private static final String DIVIDER_LINES = "    ____________________________________________";
 
     /**
      * Generates and print the welcome message upon the start of the application.
      */
-
     public String showWelcome() {
         String logo = " ____        _        \n"
                 + "|  _ \\ _   _| | _____ \n"
                 + "| | | | | | | |/ / _ \\\n"
                 + "| |_| | |_| |   <  __/\n"
                 + "|____/ \\__,_|_|\\_\\___|\n";
-        logo = ("Hello from\n" + logo);
-        logo = ("Hello! I'm Duke");
-        logo = ("What can I do for you?");
+        logo += ("Hello! I'm Duke\n");
+        logo += ("What can I do for you?\n");
         return logo;
-    }
-
-    /**
-     * Read user input.
-     * @return
-     */
-    public String readCommand() {
-        String command = input.nextLine();
-        return command;
     }
 
     /**
@@ -51,14 +32,6 @@ public class Ui {
      */
     public String showLoadingError() {
         return ("Loading Error. New tasklist will be created");
-    }
-
-    /**
-     * shows any error if there is thrown.
-     * @param message error message
-     */
-    public String showError(String message) {
-        return (message);
     }
 
 }

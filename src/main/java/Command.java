@@ -1,7 +1,7 @@
 /**
  * Execute the command in Duke.
  */
-public class Command {
+public abstract class Command {
     private String command;
 
     /**
@@ -21,11 +21,6 @@ public class Command {
      * @throws DukeException if any of raw values are invalid
      */
 
-    public String execute(TaskList task, Ui ui, Storage storage) throws DukeException {
-        return "☹ OOPS!!! I'm sorry, but I don't know what that means :-(";
-    }
-    
-    public boolean isExit() {
-        return false;
-    }
+    public abstract String execute(TaskList task, Ui ui, Storage storage) throws DukeException,AssertionError;
+
 }

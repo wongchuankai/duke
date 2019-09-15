@@ -3,7 +3,7 @@
  */
 public class Deadline extends Task {
 
-    protected String by;
+    private String by;
 
     /**
      * Deadline constructor with description and by as string.

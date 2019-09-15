@@ -125,7 +125,7 @@ public class Storage {
     public void deleteWrite(int linenumber) throws IOException {
         File filetobemodified = new File(filePath);
         String oldContent = "";
-        if (linenumber >=0) {
+        if (linenumber >= 0) {
             BufferedReader reader = new BufferedReader(new FileReader(filetobemodified));
             String line = reader.readLine();
             int number = 0;
@@ -143,9 +143,14 @@ public class Storage {
         writeToFile(oldContent);
     }
 
-    public void WriteToStorage(TaskList taskList) throws IOException {
-        String write ="";
-        for(int i = 0; i < taskList.getTaskList().size(); i++) {
+    /**
+     * write the correct format of each task to storage according to the type of task.
+     * @param taskList task list
+     * @throws IOException for writing error
+     */
+    public void writeToStorage(TaskList taskList) throws IOException {
+        String write = "";
+        for (int i = 0; i < taskList.getTaskList().size(); i++) {
             Task task = taskList.getTaskList().get(i);
             if (task instanceof ToDo) {
                 boolean checkdone = task.isDone;
@@ -157,16 +162,16 @@ public class Storage {
             } else if (task instanceof Deadline) {
                 boolean checkdone = task.isDone;
                 if (checkdone) {
-                    write += "1/deadline/"+task.getDescription() + "/" + ((Deadline) task).getBy() + "\n";
+                    write += "1/deadline/" + task.getDescription() + "/" + ((Deadline) task).getBy() + "\n";
                 } else {
-                    write += "0/deadline/"+task.getDescription() + "/" + ((Deadline) task).getBy() + "\n";
+                    write += "0/deadline/" + task.getDescription() + "/" + ((Deadline) task).getBy() + "\n";
                 }
             } else {
                 boolean checkdone = task.isDone;
                 if (checkdone) {
-                    write += "1/event/"+task.getDescription() + "/" + ((Event) task).getAt() + "\n";
+                    write += "1/event/" + task.getDescription() + "/" + ((Event) task).getAt() + "\n";
                 } else {
-                    write += "0/event/"+task.getDescription() + "/" + ((Event) task).getAt() + "\n";
+                    write += "0/event/" + task.getDescription() + "/" + ((Event) task).getAt() + "\n";
                 }
             }
         }

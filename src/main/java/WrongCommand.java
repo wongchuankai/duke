@@ -21,11 +21,10 @@ public class WrongCommand extends Command {
      * @param task Tasklist data
      * @param ui Ui interfaces and strings
      * @param storage stored file
-     * @throws DukeException if any of raw values are invalid
      */
     @Override
-    public String execute(TaskList task, Ui ui, Storage storage) throws DukeException {
-        return "     ☹ OOPS!!! I'm sorry, but I don't know what that means :-(";
+    public String execute(TaskList task, Ui ui, Storage storage) {
+        return "     ☹ OOPS!!! I'm sorry, but I don't know what that means :-(\n" + ui.showLine();
     }
 
 }

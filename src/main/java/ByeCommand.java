@@ -20,14 +20,14 @@ public class ByeCommand extends Command {
      */
     @Override
     public String execute(TaskList task, Ui ui, Storage storage) {
-        return ("      Bye. Hope to see you again soon!");
+        return ("      Bye :) Hope to see you again soon!\n" + ui.showLine());
     }
 
     /**
      * Bye command means exit. return true.
      * @return return true
      */
-    @Override 
+
     public boolean isExit() {
         return true;
     }

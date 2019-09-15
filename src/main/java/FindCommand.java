@@ -24,39 +24,29 @@ public class FindCommand extends Command {
      * @param storage stored file
      */
     @Override
-    public String execute(TaskList task,Ui ui,Storage storage) {
-        String output = "";
-        ArrayList<Task> tasklist = task.getTaskList();
+    public String execute(TaskList task,Ui ui,Storage storage) throws DukeException, AssertionError {
         String[] strarr = command.split(" ");
-        try {
-            assert strarr.length > 1 : " Please input keywords to find";
-            if (strarr.length == 1) {
-                throw new DukeException(" Please input keywords to find");
-            }
-            String search = strarr[1];
-            output += ("     Here are the matching tasks in your list:\n");
-
-            boolean none = true;
-
-            for (int i = 0; i < tasklist.size(); i++) {
-                Task t = tasklist.get(i);
-                boolean check = t.getDescription().contains(search);
-                if (check) {
-                    none = false;
-                    output += ("     " + (i + 1) + "." + t.toString() + "\n");
-                }
-            }
-
-            if (none) {
-                output += ("     Cannot Find any matching task in the list.\n");
-            }
-
-            return output;
-        } catch (AssertionError e) {
-            return e.toString();
-        } catch (DukeException e) {
-            return e.toString();
+        assert strarr.length > 1 : " Please input keywords to find";
+        if (strarr.length == 1) {
+            throw new DukeException(" Please input keywords to find");
         }
-    }
+        String output = "";
+        String search = strarr[1];
+        output += ("     Here are the matching tasks in your list:\n");
+        boolean none = true;
+        ArrayList<Task> tasklist = task.getTaskList();
+        for (int i = 0; i < tasklist.size(); i++) {
+            Task t = tasklist.get(i);
+            boolean check = t.getDescription().contains(search);
+            if (check) {
+                none = false;
+                output += ("     " + (i + 1) + "." + t.toString() + "\n");
+            }
+        }
 
+        if (none) {
+            output += ("     Cannot Find any matching task in the list.\n");
+        }
+        return output + "\n" + ui.showLine();
+    }
 }

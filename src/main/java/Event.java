@@ -3,12 +3,7 @@
  */
 public class Event extends Task {
 
-
-    public String getAt() {
-        return at;
-    }
-
-    protected String at;
+    private String at;
 
     /**
      * Event constructor with description and at as string.
@@ -18,6 +13,10 @@ public class Event extends Task {
     public Event(String description, String at) {
         super(description);
         this.at = at;
+    }
+
+    public String getAt() {
+        return at;
     }
 
     @Override
