@@ -19,7 +19,7 @@ public class Parser {
         } else if (command.startsWith("list")) {
             ListCommand c = new ListCommand(command);
             return c;
-        } else if (command.startsWith("bye")) {
+        } else if (command.startsWith("bye") || command.startsWith("exit")) {
             ByeCommand c = new ByeCommand(command);
             return c;
         } else if (command.startsWith("deadline ")) {
