@@ -36,6 +36,10 @@ public class DoneCommand extends Command {
             }
             Integer.parseInt(donearr[1]);
             int no = Integer.parseInt(donearr[1]) - 1;
+            if (no >= task.getTaskList().size() || no <= -1) {
+                throw new DukeException("      You help input an invalid task number. Task number cannot be more "
+                        + "task size or less than 1");
+            }
             Task donetask = task.getTaskList().get(no);
             output += ("     Nice! I've marked this task as done: \n");
             donetask.markAsDone();

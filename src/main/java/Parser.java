@@ -40,6 +40,9 @@ public class Parser {
         } else if (command.startsWith("sort ")) {
             SortCommand c = new SortCommand(command);
             return c;
+        } else if (command.startsWith("help")) {
+            HelpCommand c = new HelpCommand(command);
+            return c;
         } else {
             WrongCommand c = new WrongCommand(command);
             return c;

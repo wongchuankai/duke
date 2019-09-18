@@ -43,6 +43,10 @@ public class DeleteCommand extends Command {
             return output;
         }
         int number = Integer.parseInt(deletearr[1]) - 1;
+        if (number >= task.getTaskList().size() || number <= -1) {
+            throw new DukeException("      You help input an invalid task number. Task number cannot be more "
+                    + "task size or less than 1");
+        }
         Task deletetask = task.getTaskList().get(number);
         output += ("     Noted. I've removed this task:\n");
         output += ("       " + deletetask.toString() + "\n");

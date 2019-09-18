@@ -1,44 +1,11 @@
-/**
- * Text Ui of the application.
- */
-public class Ui {
+public class HelpCommand extends Command {
 
-    /** UI interface divider lines.**/
-    private static final String DIVIDER_LINES = "    ____________________________________________";
-
-    /**
-     * Generates and print the welcome message upon the start of the application.
-     */
-    public String showWelcome() {
-        String logo = " ____        _        \n"
-                + "|  _ \\ _   _| | _____ \n"
-                + "| | | | | | | |/ / _ \\\n"
-                + "| |_| | |_| |   <  __/\n"
-                + "|____/ \\__,_|_|\\_\\___|\n";
-        logo += ("Hello! I'm Duke\n");
-        logo += ("What can I do for you?\n");
-        return logo;
+    public HelpCommand(String command) {
+        super(command);
     }
 
-    /**
-     * show the divider lines.
-     */
-    public String showLine() {
-        return (DIVIDER_LINES);
-    }
-
-    /**
-     * show loading error.
-     */
-    public String showLoadingError() {
-        return ("Loading Error. New tasklist will be created");
-    }
-
-    /**
-     * list of commands available in this Duke program.
-     * @return
-     */
-    public String helpcommand() {
+    @Override
+    public String execute(TaskList task, Ui ui, Storage storage) throws DukeException, AssertionError {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("======\n");
         stringBuilder.append("             *Help Command*\n");
@@ -54,7 +21,7 @@ public class Ui {
                 + " sort a task according to type, todo first then event then deadline task.\n");
         stringBuilder.append("9. bye: close the program safely.\n");
         stringBuilder.append("10. help: Check commands.\n");
-        stringBuilder.append("======\n");
+        stringBuilder.append(ui.showLine());
         return stringBuilder.toString();
     }
 }

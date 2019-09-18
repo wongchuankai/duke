@@ -1,5 +1,4 @@
 import java.io.IOException;
-import java.util.zip.GZIPInputStream;
 
 import javafx.animation.PauseTransition;
 import javafx.application.Application;
@@ -28,6 +27,7 @@ public class Main extends Application {
             stage.setScene(scene);
             fxmlLoader.<MainWindow>getController().setDuke(duke);
             fxmlLoader.<MainWindow>getController().showWelcome(duke.getUi().showWelcome());
+            fxmlLoader.<MainWindow>getController().showWelcome(duke.getUi().helpcommand());
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -43,9 +43,12 @@ public class Main extends Application {
         mainWindow.showWelcome("TEST");
     }
 
-   public static void exitApp() {
-       PauseTransition exitDelay = new PauseTransition(Duration.seconds(4));
-       exitDelay.setOnFinished(event -> stage.close());
-       exitDelay.play();
-   }
+    /**
+     * Exit app after 3 seconds.
+     */
+    public static void exitApp() {
+        PauseTransition exitDelay = new PauseTransition(Duration.seconds(3));
+        exitDelay.setOnFinished(event -> stage.close());
+        exitDelay.play();
+    }
 }
