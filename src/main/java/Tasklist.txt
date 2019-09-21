@@ -1,4 +1,2 @@
-1/todo/1
-0/todo/CS2103T
-0/event/movies/VIVO GV
-0/deadline/CS2105 assignment/3rd of October 2019, 11.59pm
+0/todo/1
+0/todo/2
