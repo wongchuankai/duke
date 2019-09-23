@@ -18,10 +18,11 @@ public class DoneCommand extends Command {
     }
 
     /**
-     * Execute the Done command.
+     * Execute the Done command. Mark a task as done.
      * @param task Tasklist data
      * @param ui Ui interfaces and strings
      * @param storage stored file
+     * @return a string showing a task is marked as done
      * @throws DukeException if any of raw values are invalid
      */
     @Override

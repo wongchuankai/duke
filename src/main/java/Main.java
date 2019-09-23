@@ -34,8 +34,10 @@ public class Main extends Application {
         }
     }
 
+
     /**
-     * Runs duke by checking for input and displaying errors.
+     *Runs duke by checking for input and displaying errors.
+     * @throws DukeException error exception
      */
     public void run() throws DukeException {
         duke = new Duke();

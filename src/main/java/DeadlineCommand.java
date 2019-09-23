@@ -17,10 +17,11 @@ public class DeadlineCommand extends Command {
     }
 
     /**
-     * Execute the Deadline command.
+     * Execute the Deadline command. Add deadline task. deadline (desc) /by DD/MM/YYYY 24hrformat
      * @param task Tasklist data
      * @param ui Ui interfaces and strings
      * @param storage stored file
+     * @return a string to display a deadline task is added
      */
     @Override
     public String execute(TaskList task, Ui ui, Storage storage) throws DukeException,AssertionError {

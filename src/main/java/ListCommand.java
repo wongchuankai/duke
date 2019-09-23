@@ -13,10 +13,11 @@ public class ListCommand extends Command {
     }
 
     /**
-     * Execute the List command.
+     * Execute the List command. List out entire task in the list.
      * @param task Tasklist data
      * @param ui Ui interfaces and strings
      * @param storage stored file
+     * @return a list of task currently saved in storage
      */
     @Override
     public String execute(TaskList task, Ui ui, Storage storage) {

@@ -59,7 +59,7 @@ public class Time {
     /**
      * convert the string input of by to the needed format.
      * @param time time
-     * @return
+     * @return time conversion
      */
 
     public String convert(String time) {

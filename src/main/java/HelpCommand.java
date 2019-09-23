@@ -4,8 +4,16 @@ public class HelpCommand extends Command {
         super(command);
     }
 
+    /**
+     * Execute help command. Display help command list on the display.
+     * @param task Tasklist data
+     * @param ui Ui interfaces and strings
+     * @param storage stored file
+     * @return help command display
+     * @throws AssertionError if any of raw values are invalid
+     */
     @Override
-    public String execute(TaskList task, Ui ui, Storage storage) throws DukeException, AssertionError {
+    public String execute(TaskList task, Ui ui, Storage storage) throws AssertionError {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("======\n");
         stringBuilder.append("             *Help Command*\n");

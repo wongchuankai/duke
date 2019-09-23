@@ -6,8 +6,10 @@ public class Ui {
     /** UI interface divider lines.**/
     private static final String DIVIDER_LINES = "    ____________________________________________";
 
+
     /**
      * Generates and print the welcome message upon the start of the application.
+     * @return show welcome UI
      */
     public String showWelcome() {
         String logo = " ____        _        \n"
@@ -22,6 +24,7 @@ public class Ui {
 
     /**
      * show the divider lines.
+     * @return divider lines string
      */
     public String showLine() {
         return (DIVIDER_LINES);
@@ -29,6 +32,7 @@ public class Ui {
 
     /**
      * show loading error.
+     * @return show loading error
      */
     public String showLoadingError() {
         return ("Loading Error. New tasklist will be created");
@@ -36,7 +40,7 @@ public class Ui {
 
     /**
      * list of commands available in this Duke program.
-     * @return
+     * @return help command UI
      */
     public String helpcommand() {
         StringBuilder stringBuilder = new StringBuilder();

@@ -17,10 +17,11 @@ public class EventCommand extends Command {
     }
 
     /**
-     * Execute the Event command.
+     * Execute the Event command. Add an event task. Format: event (desc) /at (place)
      * @param task Tasklist data
      * @param ui Ui interfaces and strings
      * @param storage stored file
+     * @return a string showing an event task is added
      * @throws DukeException if any of raw values are invalid
      */
     @Override

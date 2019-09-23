@@ -18,10 +18,11 @@ public class FindCommand extends Command {
     }
 
     /**
-     * Execute the Find command.
+     * Execute the Find command. Input a keyword to find tasks.
      * @param task Tasklist data
      * @param ui Ui interfaces and strings
      * @param storage stored file
+     * @return tasks which have keywords in them
      */
     @Override
     public String execute(TaskList task,Ui ui,Storage storage) throws DukeException, AssertionError {

@@ -17,10 +17,11 @@ public class DeleteCommand extends Command {
     }
 
     /**
-     * Execute the Delete command.
+     * Execute the Delete command. Delete a task indicated by task number. delete (task number)
      * @param task Tasklist data
      * @param ui Ui interfaces and strings
      * @param storage stored file
+     * @return a string showing a task is deleted
      * @throws DukeException if any of raw values are invalid
      */
     @Override

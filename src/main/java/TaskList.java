@@ -17,7 +17,7 @@ public class TaskList {
 
     /**
      * Get the task list.
-     * @return
+     * @return tasks in arraylist
      */
     public ArrayList<Task> getTaskList() {
         return tasklist;
@@ -58,7 +58,7 @@ public class TaskList {
 
     /**
      * sort the task in the list according to description alphabetically.
-     * @return
+     * @return sorted by description
      */
     public String sortByDescription() {
         Collections.sort(getTaskList(), compareByDescription);
@@ -71,7 +71,7 @@ public class TaskList {
 
     /**
      * sort the task in the list according to type. Todo task first followed by Event task and finally, Deadline task.
-     * @return
+     * @return sorted by type
      */
     public String sortByType() {
         Collections.sort(getTaskList(),compareByType);

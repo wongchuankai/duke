@@ -17,10 +17,11 @@ public class ToDoCommand extends Command {
     }
 
     /**
-     * Execute the ToDo command.
+     * Execute the ToDo command. todo (desc)
      * @param task Tasklist data
      * @param ui Ui interfaces and strings
      * @param storage stored file
+     * @return String showing todo task
      */
     @Override
     public String execute(TaskList task, Ui ui, Storage storage) throws DukeException,AssertionError {

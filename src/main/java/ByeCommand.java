@@ -13,24 +13,15 @@ public class ByeCommand extends Command {
     }
 
     /**
-     * Execute the bye command.
+     * Execute the bye command. Close the program safely.
      * @param task Tasklist data
      * @param ui Ui interfaces and strings
      * @param storage stored file
+     * @return Bye command string
      */
     @Override
     public String execute(TaskList task, Ui ui, Storage storage) {
         return ("      Bye :) Hope to see you again soon!\n" + ui.showLine());
     }
-
-    /**
-     * Bye command means exit. return true.
-     * @return return true
-     */
-
-    public boolean isExit() {
-        return true;
-    }
-
 
 }

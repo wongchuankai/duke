@@ -14,6 +14,14 @@ public class SortCommand extends Command {
         this.command = command;
     }
 
+    /**
+     * Execute sort command. Sort command according to desc or task type.
+     * @param task Tasklist data
+     * @param ui Ui interfaces and strings
+     * @param storage stored file
+     * @return strings showing tasks are sorted.
+     * @throws DukeException if any of raw values are invalid
+     */
     @Override
     public String execute(TaskList task, Ui ui, Storage storage) throws DukeException {
         String[] getSortingOrder = command.split(" ");
