@@ -17,8 +17,8 @@ Example of usage:
 Expected outcome:
 
 `
-      Got it. I've added this task: 
-        [T][✗] visit new theme park
+      Got it. I've added this task:`<br />`
+        [T][✗] visit new theme park`<br />`
       Now you have 5 tasks in the list.
  `
 
@@ -34,8 +34,8 @@ Example of usage:
 
 Expected outcome:
 
-`Got it. I've added this task: 
-        [E][✗] project meeting (at: Mon 2-4pm)
+`Got it. I've added this task:`<br />` 
+        [E][✗] project meeting (at: Mon 2-4pm)`<br />`
       Now you have 7 tasks in the list.
  `
 ### `3. deadline` - add an deadline task to be done
@@ -51,8 +51,8 @@ Example of usage:
 Expected outcome:
 
 `
-    Got it. I've added this task: 
-        [D][✗] submit project report (by: 11th of October 2019, 5.00pm)
+    Got it. I've added this task: `<br />`
+        [D][✗] submit project report (by: 11th of October 2019, 5.00pm) `<br />`
       Now you have 6 tasks in the list.
      `
 
@@ -69,12 +69,12 @@ Example of usage:
 Expected outcome:
 
 `
-      Here are the tasks in your list:
-      1.[T][✓] read book
-      2.[D][✗] return book (by: June 6th)
-      3.[E][✗] project meeting (at: Aug 6th 2-4pm)
-      4.[T][✓] join sports club
-      5.[T][✗] borrow book
+      Here are the tasks in your list: `<br />`
+      1.[T][✓] read book `<br />`
+      2.[D][✗] return book (by: June 6th) `<br />`
+      3.[E][✗] project meeting (at: Aug 6th 2-4pm) `<br />`
+      4.[T][✓] join sports club `<br />`
+      5.[T][✗] borrow book `
  `
 ### `5. find` - search for a keyword
 
@@ -88,9 +88,9 @@ Example of usage:
 
 Expected outcome:
 
-`     Here are the matching tasks in your list:
-      1.[T][✓] read book
-      2.[D][✓] return book (by: June 6th)
+`     Here are the matching tasks in your list: `<br />`
+      1.[T][✓] read book `<br />`
+      2.[D][✓] return book (by: June 6th) 
  `
 
 ### `6. delete` - deleting tasks from the list.
@@ -105,8 +105,8 @@ Example of usage:
 
 Expected outcome:
 
-`     Noted. I've removed this task: 
-        [E][✗] project meeting (at: Aug 6th 2-4pm)
+`     Noted. I've removed this task:  `<br />`
+        [E][✗] project meeting (at: Aug 6th 2-4pm) `<br />`
       Now you have 4 tasks in the list.
  `
      
@@ -122,7 +122,7 @@ Example of usage:
 
 Expected outcome:
 
-`     Nice! I've marked this task as done: 
+`     Nice! I've marked this task as done: `<br />`
         [✓] return book
  `    
      
@@ -139,7 +139,7 @@ Example of usage:
 
 Expected outcome:
 
-`     Nice! I've marked this task as done: 
+`     Nice! I've marked this task as done: `<br />`
         [✓] return book
   `   
 
@@ -151,7 +151,7 @@ Example of usage:
 
 Expected outcome:
 
-`     Nice! I've marked this task as done: 
+`     Nice! I've marked this task as done: `<br />` 
         [✓] return book
  `    
      
@@ -183,8 +183,21 @@ Expected outcome:
  
  Expected outcome:
  
- `     Bye. Hope to see you again soon!
-  `  
+ `     
+*Help Command* `<br />`
+"1. todo (desc): input your todo task. `<br />`
+"2. event (desc) /at (place): input your event with description at a place. `<br />`
+"3. deadline (desc) /by (time format: DD/MM/YYYY 24hour: input your task with" `<br />`
+deadline with 24 hour format.`<br />`
+"4. list: list out all the current tasks recorder in Duke. `<br />`
+"5. find (keywords): find a task by input some keywords. `<br />`
+"6. delete (task number): delete a task as indicated by task number.`<br />`
+"7. done (task number): mark a task as done, indicated by task number.`<br />`
+"8. sort desc/type: sort a task according to desc lexicographically.`<br />`
+sort a task according to type, todo first then event then deadline task.
+"9. bye: terminate the program safely.`<br />`
+"10. help: Check commands.
+`  
 
 ## Usage
 
