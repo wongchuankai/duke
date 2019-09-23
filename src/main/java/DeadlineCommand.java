@@ -38,10 +38,16 @@ public class DeadlineCommand extends Command {
         }
         String output = "     Got it. I've added this task:\n";
         String[] date = deadlinearr[1].split("/");
+        if (date.length <= 2) {
+            throw new DukeException(" ☹ OOPS!!! Wrong format. Must be deadline desc /by time(format: DD/MM/YYYY 24:00)\n");
+        }
         String[] tm = date[2].split(" ");
         int day = Integer.parseInt(date[0]);
         int month = Integer.parseInt(date[1]);
         int year = Integer.parseInt(tm[0]);
+        if (month > 12 || month < 1) {
+            throw new DukeException(" ☹ OOPS!!! Wrong format. Invalid month input\n");
+        }
         String time = tm[1];
         Time t = new Time(day, month, year, time);
         Deadline deadline = new Deadline(deadlinearr[0], t.toString());
