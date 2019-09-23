@@ -1,5 +1,6 @@
 # User Guide
 
+![Ui](https://user-images.githubusercontent.com/50571269/65426277-73971600-de42-11e9-91c7-0ea30f3b8007.png)
 ## Features 
 
 
@@ -166,6 +167,8 @@ Expected outcome:
       Nice! I've marked this task as done: 
         [✓] return book
      ____________________________________________________________`
+     
+     
      
 ### `9. bye` - close the program safely.
  
