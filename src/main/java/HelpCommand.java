@@ -19,7 +19,7 @@ public class HelpCommand extends Command {
         stringBuilder.append("7. done (task number): mark a task as done, indicated by task number.\n");
         stringBuilder.append("8. sort desc/type: sort a task according to desc lexicographically or"
                 + " sort a task according to type, todo first then event then deadline task.\n");
-        stringBuilder.append("9. bye: close the program safely.\n");
+        stringBuilder.append("9. bye: terminate the program safely.\n");
         stringBuilder.append("10. help: Check commands.\n");
         stringBuilder.append(ui.showLine());
         return stringBuilder.toString();

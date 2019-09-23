@@ -16,10 +16,10 @@ public class Parser {
         if (command.startsWith("todo ")) {
             ToDoCommand c = new ToDoCommand(command);
             return c;
-        } else if (command.startsWith("list")) {
+        } else if (command.equals("list")) {
             ListCommand c = new ListCommand(command);
             return c;
-        } else if (command.startsWith("bye") || command.startsWith("exit")) {
+        } else if (command.equals("bye") || command.equals("exit")) {
             ByeCommand c = new ByeCommand(command);
             return c;
         } else if (command.startsWith("deadline ")) {
