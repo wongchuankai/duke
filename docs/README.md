@@ -3,7 +3,7 @@
 ## Features 
 
 
- ### `1. todo` - add a task to be done
+### `1. todo` - add a task to be done
 
 tasks without any date/time attached to it e.g., visit new theme park
 
@@ -167,7 +167,7 @@ Expected outcome:
         [✓] return book
      ____________________________________________________________`
      
- ### `9. bye` - close the program safely.
+### `9. bye` - close the program safely.
  
  User cannot input anymore and close the program safely.
  
@@ -182,7 +182,8 @@ Expected outcome:
  `____________________________________________________________
        Bye. Hope to see you again soon!
       ____________________________________________________________`
-    
+      
+
 ### `10. help` - display a list of commands
  
  display a list of commands for users to view.
