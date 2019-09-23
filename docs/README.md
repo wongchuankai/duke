@@ -16,12 +16,11 @@ Example of usage:
 
 Expected outcome:
 
-`____________________________________________________________
+`
       Got it. I've added this task: 
         [T][✗] visit new theme park
       Now you have 5 tasks in the list.
-     ____________________________________________________________
-`
+ `
 
 ### `2. event` - add an event task to be done
 
@@ -35,12 +34,10 @@ Example of usage:
 
 Expected outcome:
 
-`____________________________________________________________
-      Got it. I've added this task: 
+`Got it. I've added this task: 
         [E][✗] project meeting (at: Mon 2-4pm)
       Now you have 7 tasks in the list.
-     ____________________________________________________________`
-
+ `
 ### `3. deadline` - add an deadline task to be done
 
 tasks that need to be done before a specific date/time e.g., submit report by 11/10/2019 5pm
@@ -53,11 +50,11 @@ Example of usage:
 
 Expected outcome:
 
-`____________________________________________________________
-      Got it. I've added this task: 
+`
+    Got it. I've added this task: 
         [D][✗] submit project report (by: 11th of October 2019, 5.00pm)
       Now you have 6 tasks in the list.
-     ____________________________________________________________`
+     `
 
 ### `4. list` - shows all the tasks in the list
 
@@ -71,15 +68,14 @@ Example of usage:
 
 Expected outcome:
 
-`____________________________________________________________
+`
       Here are the tasks in your list:
       1.[T][✓] read book
       2.[D][✗] return book (by: June 6th)
       3.[E][✗] project meeting (at: Aug 6th 2-4pm)
       4.[T][✓] join sports club
       5.[T][✗] borrow book
-     ____________________________________________________________`
-
+ `
 ### `5. find` - search for a keyword
 
 Give users a way to find a task by searching for a keyword.
@@ -92,12 +88,10 @@ Example of usage:
 
 Expected outcome:
 
-`____________________________________________________________
-      Here are the matching tasks in your list:
+`     Here are the matching tasks in your list:
       1.[T][✓] read book
       2.[D][✓] return book (by: June 6th)
-     ____________________________________________________________`
-
+ `
 
 ### `6. delete` - deleting tasks from the list.
 
@@ -111,12 +105,10 @@ Example of usage:
 
 Expected outcome:
 
-`____________________________________________________________
-      Noted. I've removed this task: 
+`     Noted. I've removed this task: 
         [E][✗] project meeting (at: Aug 6th 2-4pm)
       Now you have 4 tasks in the list.
-     ____________________________________________________________`
-
+ `
      
 ### `7. done` - mark tasks as done.
 
@@ -130,11 +122,9 @@ Example of usage:
 
 Expected outcome:
 
-`____________________________________________________________
-      Nice! I've marked this task as done: 
+`     Nice! I've marked this task as done: 
         [✓] return book
-     ____________________________________________________________`
-     
+ `    
      
 ### `8. sort` - sort the tasks in the list.
 
@@ -149,11 +139,9 @@ Example of usage:
 
 Expected outcome:
 
-`____________________________________________________________
-      Nice! I've marked this task as done: 
+`     Nice! I've marked this task as done: 
         [✓] return book
-     ____________________________________________________________`
-     
+  `   
 
 8.2 `sort type`
 
@@ -163,11 +151,9 @@ Example of usage:
 
 Expected outcome:
 
-`____________________________________________________________
-      Nice! I've marked this task as done: 
+`     Nice! I've marked this task as done: 
         [✓] return book
-     ____________________________________________________________`
-     
+ `    
      
      
 ### `9. bye` - close the program safely.
@@ -182,9 +168,7 @@ Expected outcome:
  
  Expected outcome:
  
- `____________________________________________________________
-       Bye. Hope to see you again soon!
-      ____________________________________________________________`
+`     Bye. Hope to see you again soon!`
       
 
 ### `10. help` - display a list of commands
@@ -199,10 +183,8 @@ Expected outcome:
  
  Expected outcome:
  
- `____________________________________________________________
-       Bye. Hope to see you again soon!
-      ____________________________________________________________`
-    
+ `     Bye. Hope to see you again soon!
+  `  
 
 ## Usage
 
