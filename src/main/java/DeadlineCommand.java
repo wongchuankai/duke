@@ -36,10 +36,9 @@ public class DeadlineCommand extends Command {
             String wrongformat = " ☹ OOPS!!! Wrong format. Must be deadline desc /by time(format: DD/MM/YYYY 24:00)";
             throw new DukeException(wrongformat);
         }
-        String output = "     Got it. I've added this task:\n";
         String[] date = deadlinearr[1].split("/");
         if (date.length <= 2) {
-            throw new DukeException(" ☹ OOPS!!! Wrong format. Must be deadline desc /by time(format: DD/MM/YYYY 24:00)\n");
+            throw new DukeException(" ☹ Wrong format. Must be deadline desc /by time(format: DD/MM/YYYY 24:00)\n");
         }
         String[] tm = date[2].split(" ");
         int day = Integer.parseInt(date[0]);
@@ -53,6 +52,7 @@ public class DeadlineCommand extends Command {
         Deadline deadline = new Deadline(deadlinearr[0], t.toString());
         task.addTask(deadline);
         int numberOfTask = task.getCount();
+        String output = "     Got it. I've added this task:\n";
         output += ("       " + deadline.toString() + "\n");
         output += ("     Now you have " + numberOfTask + " tasks in the list.\n");
         int checkdone = deadline.isDone ? 1 : 0;
